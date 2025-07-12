@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "Updating mirrors"
-cd ~/newqtile_test/mirror
+cd mirror
 # Update mirror list
-./mirror.sh
+./get_mirror.sh
 cd
 
 # List of programs to install
@@ -58,6 +58,8 @@ programs=(
 	# "zsh"
 	"ripgrep"
     "xfce4-power-manager"
+    "tlp" 
+    "tlp-rdw"
 )
 
 # Update the package database and upgrade the system
@@ -103,7 +105,6 @@ aur_programs=(
     "volctl"
     "qtile-extras"
     "nomacs"
-	"zsh-theme-powerlevel10k-git"
     "brightnessctl"
 )
 
@@ -169,7 +170,8 @@ git config --global user.name "Abhishek Mishra"
 git config --global user.email gmkng1@gmail.com
 
 mkdir -p  ~/Pictures/Screenshots
-# mkdir -p  ~/Pictures/
+cp -rT walls   ~/Pictures/walls
+
 
 echo "Installation complete!"
 
