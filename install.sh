@@ -300,7 +300,15 @@ main() {
     enable_services
     final_touches
     echo "🎉 Installation complete!"
-}
 
+    # Prompt for reboot
+    read -rp "🔁 Do you want to reboot now? (y/n): " answer
+    if [[ "$answer" =~ ^[Yy]$ ]]; then
+        echo "Rebooting system..."
+        sudo reboot
+    else
+        echo "Reboot skipped. Please reboot manually later to apply all changes."
+    fi
+}
 main
 
