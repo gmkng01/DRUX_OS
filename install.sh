@@ -187,7 +187,7 @@ cd mirror && ./get_mirror.sh && cd ~
 # List of packages from official repos
 programs=(
     qtile neovim git htop curl wget firefox lxsession terminator rofi picom
-    font-manager blueman bluez bluez-utils nitrogen pulseaudio pavucontrol
+    font-manager blueman bluez bluez-utils pulseaudio pavucontrol
     brightnessctl pamixer alsa-plugins alsa-utils pulseaudio-bluetooth
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop trayer lxappearance lightdm-slick-greeter xfce4-screenshooter
@@ -199,7 +199,7 @@ programs=(
 aur_programs=(
     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
     envycontrol pfetch python-pulsectl jmtpfs lightdm-settings python-colorthief
-    volctl qtile-extras nomacs brightnessctl
+    volctl qtile-extras nomacs brightnessctl nitrogen
 )
 
 install_programs() {
