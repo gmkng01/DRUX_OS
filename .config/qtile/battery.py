@@ -40,11 +40,6 @@ class BatteryWidget(widget.base.ThreadPoolText):
         self.bar.draw()
 
 
-
-
-
-
-
 # from libqtile import widget
 # import subprocess
 # import time

@@ -4,7 +4,7 @@ import Color_picker as cp
 
 home = os.path.expanduser('~')
 
-co = colors.full_gray
+co = colors.black_gray
 fix = colors.changable
 
 bk = co['bk']
@@ -56,7 +56,8 @@ with open(config_rasi_path, 'w') as f:
 
 va = {
     "browser" :                 "firefox",
-    "trml":                     "terminator",
+    "trml":                     "alacritty",
+    "fl_trml":                  "terminator ",
     "code":                     f"{home}/.config/qtile/scripts/VScode_transparent.sh",
     # "rofi_menu":                "rofi -show drun -theme ~/.config/rofi/launchers/type-1/style-7.rasi",
     # "rofi_windows":             "rofi -show window -theme ~/.config/rofi/launchers/type-1/style-7.rasi",

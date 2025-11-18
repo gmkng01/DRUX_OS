@@ -17,6 +17,9 @@ mykeys = [
         ### The essentials launches
         Key(["mod4"], "Return", lazy.spawn(vriable['trml']), 
             desc='Launches My Terminal'),
+
+        Key(["mod4", "control"], "Return", lazy.spawn(vriable['fl_trml']), 
+            desc='NetworkManager Tools'),
     
         Key(["mod1", "shift"], "c", lazy.spawn("google-chrome-stable"), 
             desc='Launches My Chrome'),
@@ -33,8 +36,8 @@ mykeys = [
         Key(["mod4", "shift"], "n", lazy.spawn(vriable['rofi_file']), 
             desc = "Launchs Rofi FileBrowser launcher"),
 
-        Key(["mod1"], "p", lazy.spawn("sxiv -t ~/Pictures/wall"), 
-            desc = "Wallpaper Changer"),
+        # Key(["mod1"], "p", lazy.spawn("sxiv -t ~/Pictures/wall"), 
+        #     desc = "Wallpaper Changer"),
 
         Key(["mod1"], "f", lazy.spawn(vriable["browser"]), 
             desc='Firefox'),
