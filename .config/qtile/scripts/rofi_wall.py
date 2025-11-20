@@ -1,189 +1,15 @@
-# import os
-# import shutil
-# import subprocess
-# import tkinter as tk
-# from tkinter import filedialog, messagebox
-# home = os.path.expanduser('~')
-# # Constants
-# NITROGEN_CFG_PATH = f"{home}/.config/nitrogen/bg-saved.cfg"
-# LOCK_SCRIPT_PATH = f"{home}/.config/i3lock/lock.sh"
-# LOGIN_IMAGE_DEST = "/usr/share/pixmaps/background.png"
-
-# def select_image():
-#     return filedialog.askopenfilename(
-#         title="Choose an image",
-#         filetypes=[("Image Files", "*.png *.jpg *.jpeg *.bmp *.webp")]
-#     )
-
-# def set_desktop_wallpaper(image_path):
-#     if not os.path.exists(NITROGEN_CFG_PATH):
-#         messagebox.showerror("Error", "Nitrogen config not found.")
-#         return
-#     with open(NITROGEN_CFG_PATH, 'r') as f:
-#         lines = f.readlines()
-#     with open(NITROGEN_CFG_PATH, 'w') as f:
-#         for line in lines:
-#             if line.startswith("file="):
-#                 f.write(f"file={image_path}\n")
-#             else:
-#                 f.write(line)
-#     messagebox.showinfo("Success", "Desktop wallpaper updated.")
-
-# def set_lock_screen(image_path):
-#     if not os.path.exists(LOCK_SCRIPT_PATH):
-#         messagebox.showerror("Error", "Lock screen script not found.")
-#         return
-#     with open(LOCK_SCRIPT_PATH, 'r') as f:
-#         lines = f.readlines()
-#     with open(LOCK_SCRIPT_PATH, 'w') as f:
-#         for line in lines:
-#             if "--image=" in line:
-#                 start = line.find("--image=")
-#                 before = line[:start]
-#                 f.write(f'{before}--image="{image_path}" \\\n')
-#             else:
-#                 f.write(line)
-#     messagebox.showinfo("Success", "Lock screen wallpaper updated.")
-
-# def set_login_screen(image_path):
-#     if not os.path.exists(image_path):
-#         messagebox.showerror("Error", "Selected image does not exist.")
-#         return
-#     try:
-#         subprocess.run(["pkexec", "cp", image_path, LOGIN_IMAGE_DEST], check=True)
-#         messagebox.showinfo("Success", "Login screen wallpaper updated.")
-#     except subprocess.CalledProcessError:
-#         messagebox.showerror("Error", "Failed to copy image.\nYou may need to install 'polkit' or run this as root.")
-
-# def handle_click(target):
-#     image_path = select_image()
-#     if not image_path:
-#         return
-#     if target == "desktop":
-#         set_desktop_wallpaper(image_path)
-#     elif target == "lock":
-#         set_lock_screen(image_path)
-#     elif target == "login":
-#         set_login_screen(image_path)
-
-# # GUI Setup
-# root = tk.Tk()
-# root.title("Wallpaper Changer")
-# root.geometry("350x200")
-# root.resizable(False, False)
-
-# label = tk.Label(root, text="Select which wallpaper to change:", font=("Helvetica", 12))
-# label.pack(pady=10)
-
-# tk.Button(root, text="Desktop Wallpaper", width=25, command=lambda: handle_click("desktop")).pack(pady=5)
-# tk.Button(root, text="Lock Screen Wallpaper", width=25, command=lambda: handle_click("lock")).pack(pady=5)
-# tk.Button(root, text="Login Screen Wallpaper", width=25, command=lambda: handle_click("login")).pack(pady=5)
-
-# root.mainloop()
-
-
-
-
-#####****zenity version****#####
-
-# import os
-# import subprocess
-# import tkinter as tk
-# from tkinter import messagebox
-
-# home = os.path.expanduser('~')
-
-# # Constants
-# NITROGEN_CFG_PATH = f"{home}/.config/nitrogen/bg-saved.cfg"
-# LOCK_SCRIPT_PATH = f"{home}/.config/i3lock/lock.sh"
-# LOGIN_IMAGE_DEST = "/usr/share/pixmaps/background.png"
-
-# def select_image():
-#     try:
-#         result = subprocess.run([
-#             "zenity", "--file-selection", "--title=Choose an image",
-#             "--file-filter=*.png *.jpg *.jpeg *.bmp *.webp"
-#         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-#         if result.returncode == 0:
-#             return result.stdout.strip()
-#     except FileNotFoundError:
-#         messagebox.showerror("Error", "Zenity is not installed.\nInstall it using: sudo pacman -S zenity")
-#     return None
-
-# def set_desktop_wallpaper(image_path):
-#     if not os.path.exists(NITROGEN_CFG_PATH):
-#         messagebox.showerror("Error", "Nitrogen config not found.")
-#         return
-#     with open(NITROGEN_CFG_PATH, 'r') as f:
-#         lines = f.readlines()
-#     with open(NITROGEN_CFG_PATH, 'w') as f:
-#         for line in lines:
-#             if line.startswith("file="):
-#                 f.write(f"file={image_path}\n")
-#             else:
-#                 f.write(line)
-#     messagebox.showinfo("Success", "Desktop wallpaper updated.")
-
-# def set_lock_screen(image_path):
-#     if not os.path.exists(LOCK_SCRIPT_PATH):
-#         messagebox.showerror("Error", "Lock screen script not found.")
-#         return
-#     with open(LOCK_SCRIPT_PATH, 'r') as f:
-#         lines = f.readlines()
-#     with open(LOCK_SCRIPT_PATH, 'w') as f:
-#         for line in lines:
-#             if "--image=" in line:
-#                 start = line.find("--image=")
-#                 before = line[:start]
-#                 f.write(f'{before}--image="{image_path}" \\\n')
-#             else:
-#                 f.write(line)
-#     messagebox.showinfo("Success", "Lock screen wallpaper updated.")
-
-# def set_login_screen(image_path):
-#     if not os.path.exists(image_path):
-#         messagebox.showerror("Error", "Selected image does not exist.")
-#         return
-#     try:
-#         subprocess.run(["pkexec", "cp", image_path, LOGIN_IMAGE_DEST], check=True)
-#         messagebox.showinfo("Success", "Login screen wallpaper updated.")
-#     except subprocess.CalledProcessError:
-#         messagebox.showerror("Error", "Failed to copy image.\nYou may need to install 'polkit' or run this as root.")
-
-# def handle_click(target):
-#     image_path = select_image()
-#     if not image_path:
-#         return
-#     if target == "desktop":
-#         set_desktop_wallpaper(image_path)
-#     elif target == "lock":
-#         set_lock_screen(image_path)
-#     elif target == "login":
-#         set_login_screen(image_path)
-
-# # GUI Setup
-# root = tk.Tk()
-# root.title("Wallpaper Changer")
-# root.geometry("350x200")
-# root.resizable(False, False)
-
-# label = tk.Label(root, text="Select which wallpaper to change:", font=("Helvetica", 12))
-# label.pack(pady=10)
-
-# tk.Button(root, text="Desktop Wallpaper", width=25, command=lambda: handle_click("desktop")).pack(pady=5)
-# tk.Button(root, text="Lock Screen Wallpaper", width=25, command=lambda: handle_click("lock")).pack(pady=5)
-# tk.Button(root, text="Login Screen Wallpaper", width=25, command=lambda: handle_click("login")).pack(pady=5)
-
-# root.mainloop()
+#!/usr/bin/env python3
 
 import os
 import subprocess
-import sys
+import os
+import re
+from colorthief import ColorThief
 
 home = os.path.expanduser('~')
 NITROGEN_CFG_PATH = f"{home}/.config/nitrogen/bg-saved.cfg"
 LOCK_SCRIPT_PATH = f"{home}/.config/i3lock/lock.sh"
-LOGIN_IMAGE_DEST = "/usr/share/pixmaps/background.png"
+LOGIN_IMAGE_DEST = "/usr/share/sddm/themes/Sugar-Candy/Backgrounds/background.jpg"
 
 def show_option_selector():
     options = "Desktop\nLock\nLogin"
@@ -225,7 +51,14 @@ def set_desktop_wallpaper(image_path):
                 f.write(f"file={image_path}\n")
             else:
                 f.write(line)
-    show_message("Success", "Desktop wallpaper updated.")
+    
+    subprocess.run(["nitrogen", "--restore"])
+    subprocess.run(
+    'qtile cmd-obj -o cmd -f restart && source ./color_changer.sh && sleep 3 && ~/.config/qtile/trayer.py &',
+    shell=True)
+    subprocess.run('sleep 1',shell=True)
+    subprocess.run('~/.config/qtile/trayer.py',shell=True)
+    # show_message("Success", "Desktop wallpaper updated.")
 
 def set_lock_screen(image_path):
     if not os.path.exists(LOCK_SCRIPT_PATH):
@@ -241,7 +74,7 @@ def set_lock_screen(image_path):
                 f.write(f'{before}--image="{image_path}" \\\n')
             else:
                 f.write(line)
-    show_message("Success", "Lock screen wallpaper updated.")
+    # show_message("Success", "Lock screen wallpaper updated.")
 
 def set_login_screen(image_path):
     if not os.path.exists(image_path):
@@ -249,7 +82,7 @@ def set_login_screen(image_path):
         return
     try:
         subprocess.run(["pkexec", "cp", image_path, LOGIN_IMAGE_DEST], check=True)
-        show_message("Success", "Login screen wallpaper updated.")
+        # show_message("Success", "Login screen wallpaper updated.")
     except subprocess.CalledProcessError:
         show_message("Error", "Failed to copy image. You may need to install 'polkit' or run this as root.", True)
 
@@ -261,10 +94,25 @@ def main():
     if not image_path:
         return
 
-    if target == "desktop":
-        set_desktop_wallpaper(image_path)
-    elif target == "lock":
+    if target == "lock":        
+        sh_file = "/home/abhi/.config/i3lock/lock.sh"
+        ct = ColorThief(image_path)
+        palette = ct.get_palette(color_count=2)
+        fr  = f"#{palette[0][0]:02X}{palette[0][1]:02X}{palette[0][2]:02X}"
+        fr2 = f"#{palette[1][0]:02X}{palette[1][1]:02X}{palette[1][2]:02X}"
+        with open(sh_file, "r") as f:
+            content = f.read()
+
+        content = re.sub(r'^fr="#[0-9A-Fa-f]{6}"',  f'fr="{fr}"',  content, flags=re.MULTILINE)
+        content = re.sub(r'^fr2="#[0-9A-Fa-f]{6}"', f'fr2="{fr2}"', content, flags=re.MULTILINE)
+
+        with open(sh_file, "w") as f:
+            f.write(content)
+        # print("Updated:", fr, fr2)
         set_lock_screen(image_path)
+
+    elif target == "desktop":
+        set_desktop_wallpaper(image_path)    
     elif target == "login":
         set_login_screen(image_path)
 

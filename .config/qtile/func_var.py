@@ -4,7 +4,7 @@ import Color_picker as cp
 
 home = os.path.expanduser('~')
 
-co = colors.black_gray
+co = cp.wall_color
 fix = colors.changable
 
 bk = co['bk']
@@ -19,8 +19,6 @@ urgent = fix['dark_red']
 widget_font = 'NFS font'
 widget_font_symbols = 'JetBrainsMono Nerd Font Italic'
 
-
-# Template for the Rofi config file
 rasi_template = """
 /* Rofi Color Theme */
 * {{
@@ -40,19 +38,13 @@ rasi_content = rasi_template.format(
    gr=gr
 )
 
-# Determine the path to the config.rasi file
 home = os.path.expanduser('~')
 config_rasi_path = os.path.join(home, '.config', 'rofi', 'color.rasi')
 
-# Ensure the directory exists
 os.makedirs(os.path.dirname(config_rasi_path), exist_ok=True)
 
-# Write the formatted content to the config.rasi file
 with open(config_rasi_path, 'w') as f:
    f.write(rasi_content)
-
-
-
 
 va = {
     "browser" :                 "firefox",
@@ -83,7 +75,8 @@ va = {
     "screenshot_region":        'sh -c "xfce4-screenshooter -r --clipboard --save ~/Pictures/Screenshots/Screenshot_$(date +\'%Y-%m-%d_%H:%M:%S\').png"',
     "screenshot_gui":           "xfce4-screenshooter",
     "trayer":                   f"killall trayer && trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 10 --distance 10 --distancefrom top",
-    "lock_screen":              f"{home}/.config/i3lock/lock.sh"
+    "lock_screen":              f"{home}/.config/i3lock/lock.sh",
+    "wall_change":              f"{home}/.config/qtile/scripts/rofi_wall.py"
     # "lock_screen":              "betterlockscreen -l"
     }
 

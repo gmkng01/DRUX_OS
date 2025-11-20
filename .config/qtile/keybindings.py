@@ -35,6 +35,9 @@ mykeys = [
         
         Key(["mod4", "shift"], "n", lazy.spawn(vriable['rofi_file']), 
             desc = "Launchs Rofi FileBrowser launcher"),
+        
+        Key(["mod4"], "w", lazy.spawn(vriable['wall_change']), 
+            desc='Launches My Terminal'),
 
         # Key(["mod1"], "p", lazy.spawn("sxiv -t ~/Pictures/wall"), 
         #     desc = "Wallpaper Changer"),
