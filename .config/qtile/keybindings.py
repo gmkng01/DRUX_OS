@@ -1,5 +1,5 @@
 import os
-from func_var import vriable, bk
+from func_var import name, bk
 from MyBars import mygroup
 from subprocess import Popen
 from libqtile.lazy import lazy
@@ -15,10 +15,10 @@ def trayer():
 
 mykeys = [
         ### The essentials launches
-        Key(["mod4"], "Return", lazy.spawn(vriable['trml']), 
+        Key(["mod4"], "Return", lazy.spawn(name['trml']), 
             desc='Launches My Terminal'),
 
-        Key(["mod4", "control"], "Return", lazy.spawn(vriable['fl_trml']), 
+        Key(["mod4", "control"], "Return", lazy.spawn(name['fl_trml']), 
             desc='NetworkManager Tools'),
     
         Key(["mod1", "shift"], "c", lazy.spawn("google-chrome-stable"), 
@@ -27,22 +27,22 @@ mykeys = [
         Key(["mod1", "shift"], "n", lazy.spawn("terminator -e nmtui"), 
             desc='NetworkManager Tools'),
 
-        Key(["mod4", "shift"], "Return", lazy.spawn(vriable['rofi_menu']), 
+        Key(["mod4", "shift"], "Return", lazy.spawn(name['rofi_menu']), 
             desc='Run Launcher Menu'),
 
-        Key(["mod4", "shift"], "w", lazy.spawn(vriable['rofi_windows']), 
+        Key(["mod4", "shift"], "w", lazy.spawn(name['rofi_windows']), 
             desc = "Launchs Rofi window launcher"),
         
-        Key(["mod4", "shift"], "n", lazy.spawn(vriable['rofi_file']), 
+        Key(["mod4", "shift"], "n", lazy.spawn(name['rofi_file']), 
             desc = "Launchs Rofi FileBrowser launcher"),
         
-        Key(["mod4"], "w", lazy.spawn(vriable['wall_change']), 
+        Key(["mod4"], "w", lazy.spawn(name['wall_change']), 
             desc='Launches My Terminal'),
 
         # Key(["mod1"], "p", lazy.spawn("sxiv -t ~/Pictures/wall"), 
         #     desc = "Wallpaper Changer"),
 
-        Key(["mod1"], "f", lazy.spawn(vriable["browser"]), 
+        Key(["mod1"], "f", lazy.spawn(name["browser"]), 
             desc='Firefox'),
 
         Key(["mod1"], "d", lazy.spawn("discord"), 
@@ -51,13 +51,13 @@ mykeys = [
         Key(["mod1"], "t", lazy.spawn("telegram-desktop"), 
             desc='Telegram'),
 
-        Key(["mod1"], "c", lazy.spawn(vriable['code']), 
+        Key(["mod1"], "c", lazy.spawn(name['code']), 
             desc='VS vscodium'),
 
-        Key(["mod1"], "n", lazy.spawn(vriable['file_manager']), 
+        Key(["mod1"], "n", lazy.spawn(name['file_manager']), 
             desc='File Manager'),
 
-        Key(["mod1"], "b", lazy.spawn(vriable["bluetooth"]), 
+        Key(["mod1"], "b", lazy.spawn(name["bluetooth"]), 
             desc='blueman-manager'),   
        
         
@@ -71,24 +71,24 @@ mykeys = [
         Key(["mod4"], "r", lazy.reload_config(), 
             desc='Restart Qtile'),
 
-        Key(["mod4"], "l", lazy.spawn(vriable["lock_screen"]),
+        Key(["mod4"], "l", lazy.spawn(name["lock_screen"]),
             desc='Screen Lock'),
 
         Key(["mod4", "shift"], "q", lazy.shutdown(), 
             desc='Logout'),
 
-        Key(["mod4", "shift"], "x", lazy.spawn(vriable["shutdown"]),
+        Key(["mod4", "shift"], "x", lazy.spawn(name["shutdown"]),
             desc='Shut Down'),
 
-        Key(["mod4", "shift"], "r", lazy.spawn(vriable["reboot"]),
+        Key(["mod4", "shift"], "r", lazy.spawn(name["reboot"]),
             desc='Reboot'),
 
-        Key(["mod4", "shift"], "l", lazy.spawn(vriable["suspend"]), 
+        Key(["mod4", "shift"], "l", lazy.spawn(name["suspend"]), 
             desc='System Suspend'),
 
-        Key(["mod4", "shift"], "d", lazy.spawn(vriable["power_menu"])),
+        Key(["mod4", "shift"], "d", lazy.spawn(name["power_menu"])),
 
-        Key(["mod4", "shift"], "t",lazy.spawn(vriable["theme_changer"]),
+        Key(["mod4", "shift"], "t",lazy.spawn(name["theme_changer"]),
             desc="Cycle through colors"),
 
         ### Window controls
@@ -164,23 +164,23 @@ mykeys = [
             ),
          
         # Sound       
-        Key([], "XF86AudioMute", lazy.spawn(vriable["vol_mute"])),
+        Key([], "XF86AudioMute", lazy.spawn(name["vol_mute"])),
 
-        Key([], "XF86AudioLowerVolume", lazy.spawn(vriable["vol_down"])),
+        Key([], "XF86AudioLowerVolume", lazy.spawn(name["vol_down"])),
 
-        Key([], "XF86AudioRaiseVolume", lazy.spawn(vriable["vol_up"])),
+        Key([], "XF86AudioRaiseVolume", lazy.spawn(name["vol_up"])),
 
         # Brightness
-        Key([], 'XF86MonBrightnessUp', lazy.spawn(vriable["bright_up"])),
+        Key([], 'XF86MonBrightnessUp', lazy.spawn(name["bright_up"])),
 
-        Key([], 'XF86MonBrightnessDown', lazy.spawn(vriable["bright_down"])),
+        Key([], 'XF86MonBrightnessDown', lazy.spawn(name["bright_down"])),
         
         # ScreenShots
-        Key([], "Print", lazy.spawn(vriable["screenshot_full"])),
+        Key([], "Print", lazy.spawn(name["screenshot_full"])),
 
-        Key(["control"], "Print", lazy.spawn(vriable["screenshot_region"])),
+        Key(["control"], "Print", lazy.spawn(name["screenshot_region"])),
 
-        Key(["control", "mod4"], "Print", lazy.spawn(vriable["screenshot_window"])),
+        Key(["control", "mod4"], "Print", lazy.spawn(name["screenshot_window"])),
 
         Key(["control", "shift"], "Print", lazy.spawn("xfce4-screenshooter")),
 

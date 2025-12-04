@@ -1,6 +1,6 @@
 from libqtile import  widget
 # from libqtile import qtile
-from func_var import vriable
+from func_var import name
 from libqtile.bar import Bar
 from libqtile.lazy import lazy
 from battery import BatteryWidget
@@ -320,10 +320,10 @@ mybar = [
 ]
 
 mygroup = [
-    Group('1', label="", matches = [Match(wm_class = vriable['browser'])]),
+    Group('1', label="", matches = [Match(wm_class = name['browser'])]),
     Group('2', label="", matches = [Match(wm_class = 'code')], layout='max'),
     Group('3', label=""), 
-    Group('4', label="",matches = [Match(wm_class = vriable['file_manager'])]),
+    Group('4', label="",matches = [Match(wm_class = name['file_manager'])]),
     Group('5', label="", matches = [Match(wm_class = "discord"), Match(wm_class="TelegramDesktop")]),
     Group('6', label=""),
     Group('7', label=""),

@@ -4,7 +4,7 @@ import Color_picker as cp
 
 home = os.path.expanduser('~')
 
-co = cp.wall_color
+co = colors.yellow_night
 fix = colors.changable
 
 bk = co['bk']
@@ -80,5 +80,5 @@ va = {
     # "lock_screen":              "betterlockscreen -l"
     }
 
-vriable = va
+name = va
 
