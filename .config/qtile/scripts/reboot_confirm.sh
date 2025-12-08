@@ -3,8 +3,6 @@
 # Current Theme
 theme="$HOME/.config/rofi/theme.rasi"
 
-
-
 yes='  Yes'
 no='󰛉  No'
 

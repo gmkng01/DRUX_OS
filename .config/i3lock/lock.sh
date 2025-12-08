@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-alpha='40'
+alpha='10'
 alpha2='66'
 background='#282a36'
 selection='#44475a'
 comment='#6272a4'
 font='#DDDDDD'
+
+
+fr="#CECAD2"
+fr2="#292836"
 
 yellow='#f1fa8c'
 orange='#ffb86c'
@@ -33,24 +37,19 @@ i3lock \
   --wrong-color=$red \
   --modif-color=$red \
   --layout-color=$blue \
-  --date-color=$font$alpha2 \
-  --time-color=$font$alpha2 \
+  --date-color=$fr \
+  --time-color=$fr2 \
   --screen 1 \
-  --blur 3 \
   --force-clock \
   --indicator \
-  --time-str="%H %M" \
-  --date-str="%a %e %B %Y" \
+  --time-str="%H :%M" \
+  --date-str="%a %e %b %Y" \
   --verif-text="Checking..." \
   --wrong-text="Wrong pswd" \
   --noinput="No Input" \
   --lock-text="Locking..." \
   --lockfailed="Lock Failed" \
-  --no-modkey-text \
-  --pass-media-keys \
-  --pass-screen-keys \
-  --pass-volume-keys \
-  --image="/home/abhi/Pictures/walls/jhxo81zd70ee1.jpeg" \
+  --image="/home/abhi/Pictures/walls/5yu1woysoibd1.jpeg" \
   --fill \
   --time-font="NFS Font" \
   --date-font="NFS Font" \
@@ -59,22 +58,20 @@ i3lock \
   --wrong-font="NFS Font" \
   --time-align=1 \
   --date-align=1 \
-  --date-size=50 \
-  --time-size=110 \
-  --time-pos="120:942" \
-  --date-pos="115:980" \
-  --bar-pos="95:860" \
-  --ind-pos="540:942"\
-  --bar-base-width=130 \
-  --bar-total-width=700 \
-  --bar-max-height=300 \
+  --date-size=60 \
+  --time-size=170 \
+  --time-pos="180:180" \
+  --date-pos="115:230" \
+  --ind-pos="950:942"\
+  --bar-pos="1000:860" \
+  --bar-base-width=10 \
+  --bar-total-width=10 \
+  --bar-max-height=30 \
   --bar-indicator \
   --bar-color=$background$alpha \
   --bar-step=2000 \
   --refresh-rate=1 \
   --bar-count=20000 \
   
-  # --bar-direction=1 \
-  # --pointer=win \
-  # --no-verify \
-  # --radius=120 \ 
+
+#   --blur 3 \

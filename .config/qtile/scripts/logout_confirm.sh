@@ -4,7 +4,6 @@
 dir="$HOME/.config/rofi/powermenu/type-1"
 theme='style-3'
 
-
 yes='  Yes'
 no='󰛉  No'
 

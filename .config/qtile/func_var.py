@@ -4,7 +4,7 @@ import Color_picker as cp
 
 home = os.path.expanduser('~')
 
-co = colors.yellow_night
+co = colors.black_gray
 fix = colors.changable
 
 bk = co['bk']
@@ -60,10 +60,11 @@ va = {
     "wall":                     "sxiv -t ~/Pictures/wall",
     "file_manager":             "pcmanfm",
     "bluetooth":                "blueman-manager",
-    "theme_changer":            f"{home}/.config/qtile/scripts/theme_changer.sh",
+    "theme_changer":            f"{home}/.config/qtile/scripts/try.py",
     "vol_mute":                 f"{home}/.config/qtile/scripts/vol.sh mute",
     "vol_down":                 f"{home}/.config/qtile/scripts/vol.sh down",
     "vol_up":                   f"{home}/.config/qtile/scripts/vol.sh up",
+    "mice_mute":                   f"{home}/.config/qtile/scripts/vol.sh mice_mute",
     "bright_up":                f"{home}/.config/qtile/scripts/bright.sh up",
     "bright_down":              f"{home}/.config/qtile/scripts/bright.sh down",
     "shutdown":                 f"{home}/.config/qtile/scripts/shutdown_confirm.sh",

@@ -22,7 +22,7 @@ layouts = [
     ),
     layout.Max(
        border_width = 0,
-    #    border_focus = f"#00{fr2[1::]}",
+    #    border_focus = f"#00{fr2[1::]}"
     #    border_focus = "#ffffff",
        fullscreen_border_width = 0,
        max_border_width = 0,
@@ -47,6 +47,7 @@ floating_layout = Floating(
          Match(wm_class='terminator'),             # Terminator  
          Match(wm_class='qbittorrent'),            # QbitTorrent
          Match(wm_class='nm-connection-editor'),   # Network Manager GUI
+         Match(wm_class='try.py'),   # Theme changer
     ]
 )
 

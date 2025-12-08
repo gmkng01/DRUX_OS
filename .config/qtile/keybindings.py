@@ -169,6 +169,8 @@ mykeys = [
         Key([], "XF86AudioLowerVolume", lazy.spawn(name["vol_down"])),
 
         Key([], "XF86AudioRaiseVolume", lazy.spawn(name["vol_up"])),
+        Key([], "XF86AudioMicMute", lazy.spawn(name["mice_mute"])),
+
 
         # Brightness
         Key([], 'XF86MonBrightnessUp', lazy.spawn(name["bright_up"])),

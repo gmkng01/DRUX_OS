@@ -18,6 +18,6 @@ lxsession &
 ~/.config/scripts/battery_low.sh &
 
 # Power Managment
-xfce4-power-manager &
+# xfce4-power-manager &
 
 # emacs --daemon &

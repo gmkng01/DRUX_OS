@@ -1,21 +1,9 @@
-aper(image_path):
-    if not os.path.exists(NITROGEN_CFG_PATH):
-        show_message("Error", "Nitrogen config not found.", True)
-        return
-    with open(NITROGEN_CFG_PATH, 'r') as f:
-        lines = f.readlines()
-    with open(NITROGEN_CFG_PATH, 'w') as f:
-        for line in lines:
-            if line.startswith("file="):
-                f.write(f"file={image_path}\n")
-            else:
-                f.write(line)
-    
-    subprocess.run(["nitrogen", "--restore"])
-    subprocess.run(
-    'qtile cmd-obj -o cmd -f restart && source ./color_changer.sh && sleep 3 && ~/.config/qtile/trayer.py &',
-    shell=True)
-    subprocess.run('sleep 1',shell=True)
-    subprocess.run('~/.config/qtile/trayer.py',shell=True)
-
-    show_message("Suc
+ buttons
+        palette_layout = QtWidgets.QHBoxLayout()
+        palette_layout.addWidget(QtWidgets.QLabel("Palette:"))
+        self.swatch1 = ColorSwatch("#2C3333")
+        self.swatch2 = ColorSwatch("#444444")
+        palette_layout.addWidget(self.swatch1)
+        palette_layout.addWidget(self.swatch2)
+        palette_layout.addStretch()
+        left.addLayout(palette_layout)
