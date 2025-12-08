@@ -1,0 +1,19 @@
+i will give you the static time and date position, 
+for top_left- '  --time-pos="100:200" \
+  --date-pos="100:250" \'
+for top_center- '  --time-pos="700:200" \
+  --date-pos="660:250" \'
+for top_right- '  --time-pos="1320:200" \
+  --date-pos="1300:250" \'
+for mid_left- '  --time-pos="100:550" \
+  --date-pos="100:600" \'
+for mid_center- '  --time-pos="700:500" \
+  --date-pos="660:550" \'
+fro mid_right- '  --time-pos="1320:550" \
+  --date-pos="1300:600" \'
+for bottum_left- '  --time-pos="100:900" \
+  --date-pos="100:950" \'
+for bottum_center- '  --time-pos="700:900" \
+  --date-pos="660:950" \'
+for bottum_right- '  --time-pos="1300:900" \
+  --date-pos="1300:950" \'
