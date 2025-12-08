@@ -192,7 +192,7 @@ programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop trayer lxappearance lightdm-slick-greeter xfce4-screenshooter
     upower sxiv mpv grub-customizer gnome-disk-utility kdeconnect volctl pcmanfm
-    ripgrep xfce4-power-manager tlp tlp-rdw
+    ripgrep xfce4-power-manager python-pyqt6
 )
 
 # List of AUR packages
