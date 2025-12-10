@@ -17,3 +17,5 @@ xfce4-power-manager &
 ~/.config/polybar/launch.sh &
 
 # emacs --daemon &
+
+xmodmap ~/.Xmodmap

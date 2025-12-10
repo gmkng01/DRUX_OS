@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 ## rofi-screenshot
-## Author: ceuk @ github
-## Licence: WTFPL
+## Author: gmkng00 @ github
 ## Usage:
 ##    show the menu with rofi-screenshot
 ##    stop recording with rofi-screenshot -s

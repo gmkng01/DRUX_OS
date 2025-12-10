@@ -6,8 +6,8 @@ background='#282a36'
 selection='#44475a'
 comment='#6272a4'
 font='#DDDDDD'
-fr="#517375"
-fr2="#C2D4C9"
+fr="#50555A"
+fr2="#CEBCB3"
 
 yellow='#f1fa8c'
 orange='#ffb86c'
@@ -47,7 +47,7 @@ i3lock \
   --noinput="No Input" \
   --lock-text="Locking..." \
   --lockfailed="Lock Failed" \
-  --image="/home/abhi/Pictures/walls/4x0g9kxe3b3d1.jpeg" \
+  --image="/home/abhi/Pictures/walls/1hcpynpsvvtc1.png" \
   --fill \
   --time-font="NFS Font" \
   --date-font="NFS Font" \
@@ -57,9 +57,9 @@ i3lock \
   --time-align=1 \
   --date-align=1 \
   --date-size=60 \
-  --time-size=170 \
-  --time-pos="1320:200" \
-  --date-pos="1300:250" \
+  --time-size=175 \
+  --time-pos="710:900" \
+  --date-pos="700:950" \
   --ind-pos="950:942"\
   --bar-pos="-10:860" \
   --bar-base-width=10 \

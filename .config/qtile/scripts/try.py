@@ -39,9 +39,88 @@ TRAYER_PY = HOME / ".config" / "qtile" / "trayer.py"
 COLOR_CHANGER_SH = Path.cwd() / "color_changer.sh"
 THUMB_SIZE = 128
 BATCH_SIZE = 12     # thumbnails per batch
+
+# UI appearance (change these)
+FONT_FAMILY = "NFS font"   # <-- put the font you want here (e.g. "Fira Code", "JetBrains Mono", "Sans")
+FONT_SIZE = 10              # global font size in pts
+
+# Dark stylesheet used for the whole application. Tweak colors if you like.
+DARK_STYLESHEET = """
+/* Base window */
+QWidget {
+    background-color: #101217;
+    color: #d7dde6;
+    font-family: "%FONT%";
+    font-size: %FONTSIZE%pt;
+}
+
+/* Preview area */
+QLabel {
+    color: #d7dde6;
+}
+
+/* List widgets and selection */
+QListWidget {
+    background-color: #0f1418;
+    border: 1px solid #22272b;
+    selection-background-color: #2a3440;
+    selection-color: #e6eef6;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #1a2024;
+    color: #d7dde6;
+    border: 1px solid #2b3338;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+QPushButton:hover { background-color: #232a2e; }
+QPushButton:pressed { background-color: #0f1418; }
+
+/* Group boxes */
+QGroupBox {
+    border: 1px solid #23292d;
+    margin-top: 6px;
+}
+
+/* TextEdit (log) */
+QTextEdit {
+    background-color: #0c1014;
+    border: 1px solid #191f23;
+    color: #cfe6ff;
+}
+
+/* ComboBox */
+QComboBox {
+    background-color: #111418;
+    border: 1px solid #22272b;
+    padding: 4px;
+}
+
+/* Scrollbar */
+QScrollBar:vertical {
+    background: #0d1114;
+    width: 12px;
+}
+QScrollBar::handle:vertical {
+    background: #1d2529;
+    min-height: 20px;
+}
+
+/* Frames used as swatches - give them a border so they pop */
+QFrame {
+    border: 1px solid #30363a;
+    border-radius: 2px;
+}
+""".replace("%FONT%", FONT_FAMILY).replace("%FONTSIZE%", str(FONT_SIZE))
 # -----------------------------------------------------------------------
 
-IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".bmp", ".webp"}
+
+
+# -----------------------------------------------------------------------
+
+IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".bmp"}
 
 
 def run_shell(cmd, check=False, shell=False):
@@ -256,15 +335,15 @@ class MainWindow(QtWidgets.QWidget):
         pos_layout.addWidget(QtWidgets.QLabel("Lock clock position:"))
         self.pos_combo = QtWidgets.QComboBox()
         pos_options = [
-                    ("top_left",    "100:200",  "100:250"),
-                    ("top_center",  "700:200",  "660:250"),
-                    ("top_right",   "1320:200", "1300:250"),
-                    ("mid_left",    "100:550",  "100:600"),
-                    ("mid_center",  "700:500",  "660:550"),
-                    ("mid_right",   "1320:550", "1300:600"),
-                    ("bottom_left", "100:900",  "100:950"),
-                    ("bottom_center","700:900", "660:950"),
-                    ("bottom_right","1300:900", "1300:950"),
+                    ("top_left",    "110:200",  "100:250"),
+                    ("top_center",  "710:200",  "700:250"),
+                    ("top_right",   "1310:200", "1300:250"),
+                    ("mid_left",    "110:550",  "100:600"),
+                    ("mid_center",  "710:550",  "700:600"),
+                    ("mid_right",   "1310:550", "1300:600"),
+                    ("bottom_left", "110:900",  "100:950"),
+                    ("bottom_center","710:900", "700:950"),
+                    ("bottom_right","1310:900", "1300:950"),
         ]
         for name, tpos, dpos in pos_options:
             self.pos_combo.addItem(name)
@@ -440,9 +519,9 @@ class MainWindow(QtWidgets.QWidget):
                 bak = safe_update_lock_script(path, time_pos=tpos, date_pos=dpos, fr=fr, fr2=fr2)
                 self.log_msg(f"Lock script updated. Backup: {bak}")
             elif self.radio_login.isChecked():
-                self.log_msg("Copying image to login background (requires pkexec)...")
-                set_login_wallpaper(path)
-                self.log_msg("Login wallpaper updated.")
+                self.log_msg("Copying image to login background (requires privilege escalation)...")
+                self.set_login_wallpaper(path)
+                self.log_msg("Login wallpaper handling done.")
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Error", str(e))
             self.log_msg(f"Error: {e}")
@@ -475,6 +554,80 @@ class MainWindow(QtWidgets.QWidget):
         run_shell(chained, shell=True)
         run_shell('sleep 1', shell=True)
         run_shell(f'"{TRAYER_PY}"', shell=True)
+
+    # ------------------- Login wallpaper (safe copy + perms + optional restart) -
+
+    def set_login_wallpaper(self, image_path: str, dest: Path = LOGIN_IMAGE_DEST):
+        """
+        Try pkexec -> sudo -> direct copy to place the login background.
+        Set sane perms (root:root, 0644). Optionally prompt to restart sddm.
+        """
+        if not Path(image_path).exists():
+            QtWidgets.QMessageBox.critical(self, "Error", f"Image not found: {image_path}")
+            self.log_msg(f"Login copy failed: source missing {image_path}")
+            return
+
+        self.log_msg(f"Attempting to copy {image_path} -> {dest}")
+        copy_attempts = [
+            (["pkexec", "cp", image_path, str(dest)], "pkexec"),
+            (["sudo", "cp", image_path, str(dest)], "sudo"),
+            (["cp", image_path, str(dest)], "direct")
+        ]
+
+        copied = False
+        last_err = None
+        for cmd, kind in copy_attempts:
+            try:
+                # Use shell=False so user sees polkit or sudo prompt in GUI/terminal as usual
+                subprocess.run(cmd, check=True)
+                self.log_msg(f"Copied with {kind}.")
+                copied = True
+                break
+            except FileNotFoundError as e:
+                last_err = e
+                self.log_msg(f"{kind} not available: {e}")
+                continue
+            except subprocess.CalledProcessError as e:
+                last_err = e
+                self.log_msg(f"{kind} failed: {e}")
+                continue
+
+        if not copied:
+            QtWidgets.QMessageBox.critical(
+                self, "Copy failed",
+                "Failed to copy wallpaper to login destination. Try running this application as root or install polkit."
+            )
+            self.log_msg(f"Login copy failed: {last_err}")
+            return
+
+        # Try to chown/chmod via sudo (best effort)
+        try:
+            subprocess.run(["sudo", "chown", "root:root", str(dest)], check=True)
+            subprocess.run(["sudo", "chmod", "0644", str(dest)], check=True)
+            self.log_msg("Set ownership to root:root and mode 644 on destination.")
+        except Exception as e:
+            # warn but continue
+            self.log_msg(f"Warning: couldn't chown/chmod via sudo: {e}")
+
+        # Success dialog + ask about restart
+        QtWidgets.QMessageBox.information(self, "Success", f"Login wallpaper copied to {dest}")
+        self.log_msg(f"Login wallpaper copied to {dest}")
+
+        # Ask whether to restart sddm (explicit, warns user)
+        reply = QtWidgets.QMessageBox.question(
+            self,
+            "Restart SDDM?",
+            "Restarting SDDM will log out your session. Do you want to restart SDDM now?",
+            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No
+        )
+        if reply == QtWidgets.QMessageBox.StandardButton.Yes:
+            try:
+                # use sudo to restart (polkit actions may vary)
+                subprocess.run(["sudo", "systemctl", "restart", "sddm"], check=True)
+            except Exception as e:
+                QtWidgets.QMessageBox.critical(self, "Restart failed", f"Failed to restart sddm: {e}")
+                self.log_msg(f"Failed to restart sddm: {e}")
+            # if restart succeeded, session will end; nothing else to do
 
     # ------------------- Theme handlers ------------------------------------
 
@@ -555,9 +708,23 @@ class MainWindow(QtWidgets.QWidget):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
+
+    # Set a global font if available
+    try:
+        app.setFont(QtGui.QFont(FONT_FAMILY, FONT_SIZE))
+    except Exception:
+        pass
+
+    # Apply dark stylesheet
+    try:
+        app.setStyleSheet(DARK_STYLESHEET)
+    except Exception:
+        pass
+
     w = MainWindow()
     w.show()
     sys.exit(app.exec())
+
 
 if __name__ == "__main__":
     main()
