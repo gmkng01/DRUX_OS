@@ -1,0 +1,24 @@
+2025-12-14 17:34:26.330 [info] Started local extension host with pid 4683.
+2025-12-14 17:34:27.415 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-14 17:34:27.483 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-14 17:34:29.128 [info] [perf] Render performance baseline is 16ms
+2025-12-14 17:40:57.297 [error] Cancelled: Canceled: Canceled
+    at oZe.L (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:35145)
+    at async oZe.K (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:33869)
+    at async oZe.C (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:24589)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:23954
+    at async Promise.all (index 1)
+    at async oZe.B (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:23908)
+    at async oZe.getExtensions (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1359:22571)
+    at async ept.getExtensions (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2511:15150)
+    at async Xtn.Rc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2507:17026)
+    at async Xtn.$c (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2507:19670)
+2025-12-14 17:42:01.468 [info] Settings Sync: Updated current session 429eae2ef375e53
+2025-12-14 17:42:01.473 [info] Settings Sync: Account status changed from unavailable to available
+2025-12-14 17:42:03.282 [error] Failed to fetch MCP registry providers Server returned 404
+2025-12-14 17:42:18.650 [warning] [twxs.cmake]: Cannot register 'cmake.cmakePath'. This property is already registered.
+2025-12-14 17:42:20.198 [error] [Extension Host] (node:4683) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-14 17:42:20.198 [error] [Extension Host] (node:4683) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-14 17:42:20.954 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-14 17:42:27.940 [error] An unknown error occurred. Please consult the log for more details.

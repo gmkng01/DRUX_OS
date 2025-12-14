@@ -1,0 +1,28 @@
+2025-12-14 17:43:30.581 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-14 17:43:30.581 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-14 17:43:30.581 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-14 17:43:30.581 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-14 17:43:30.817 [error] Copilot extension not found
+2025-12-14 17:43:30.843 [info] Creating node-pty shim: source=/opt/visual-studio-code/resources/app/node_modules/node-pty/build/Release, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/prebuilds/linux-x64
+2025-12-14 17:43:30.843 [info] Creating ripgrep shim: source=/opt/visual-studio-code/resources/app/node_modules/@vscode/ripgrep/bin, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64
+2025-12-14 17:43:30.853 [info] Found 1 entries to copy: pty.node
+2025-12-14 17:43:30.853 [info] Found 1 entries to copy: rg
+2025-12-14 17:43:30.865 [info] Logged in as gmkng01
+2025-12-14 17:43:30.869 [info] Using the Electron fetcher.
+2025-12-14 17:43:31.553 [info] Got Copilot token for gmkng01
+2025-12-14 17:43:31.553 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-14 17:43:31.563 [info] activationBlocker from 'languageModelAccess' took for 778ms
+2025-12-14 17:43:31.778 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-14 17:43:31.778 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-14 17:43:31.782 [info] Registering default platform agent...
+2025-12-14 17:43:31.783 [info] [code-referencing] Public code references are enabled.
+2025-12-14 17:43:31.783 [info] activationBlocker from 'conversationFeature' took for 1003ms
+2025-12-14 17:43:31.786 [info] GithubAvailableEmbeddingTypesManager: Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+2025-12-14 17:43:31.788 [info] WorkspaceChunkSearchService: using embedding type metis-1024-I16-Binary
+2025-12-14 17:43:32.286 [info] BYOK: Copilot Chat known models list fetched successfully.
+2025-12-14 17:43:32.384 [info] Fetched model metadata in 1583ms e647e8cd-9a3c-4615-aca4-1f466462730b
+2025-12-14 17:43:32.389 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-14 17:43:32.389 [info] ccreq:78adcdab.copilotmd | markdown
+2025-12-14 17:43:54.199 [warning] [relatedFiles] unknown language python
+2025-12-14 17:43:54.636 [info] [fetchCompletions] Request d7b35e47-aca8-4397-ac05-d6c072facd54 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-41-copilot/completions> finished with 200 status after 302.82969799999773ms
+2025-12-14 17:43:54.640 [info] [streamChoices] solution 0 returned. finish reason: [stop]

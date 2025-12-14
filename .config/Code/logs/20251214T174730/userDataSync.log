@@ -1,0 +1,213 @@
+2025-12-14 17:47:33.457 [info] [AutoSync] Using settings sync service https://vscode-sync.trafficmanager.net/
+2025-12-14 17:47:33.457 [info] [AutoSync] Enabled.
+2025-12-14 17:47:33.457 [info] [AutoSync] Suspended until auth token is available.
+2025-12-14 17:47:35.135 [info] [AutoSync] Triggered by Interval
+2025-12-14 17:47:35.138 [info] Sync started.
+2025-12-14 17:47:36.239 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:47:36.248 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:47:36.253 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:47:36.254 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:47:36.258 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:47:36.264 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:47:36.299 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:47:36.302 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:47:36.310 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:47:36.313 [info] Syncing profile. newvscode
+2025-12-14 17:47:36.404 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:47:36.424 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:47:36.447 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:47:36.450 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:47:36.454 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:47:36.465 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:47:36.535 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:47:36.537 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:47:36.538 [info] Syncing profile. vscode_config
+2025-12-14 17:47:36.603 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:47:36.610 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:47:36.616 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:47:36.617 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:47:36.620 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:47:36.630 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:47:36.656 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:47:36.662 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:47:36.663 [info] Sync done. Took 1626ms
+2025-12-14 17:47:45.654 [info] [AutoSync] Triggered by Activity
+2025-12-14 17:47:45.654 [info] Sync started.
+2025-12-14 17:47:46.579 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:47:46.580 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:47:46.582 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:47:46.583 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:47:46.584 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:47:46.587 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:47:46.614 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:47:46.615 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:47:46.616 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:47:46.621 [info] Syncing profile. newvscode
+2025-12-14 17:47:46.623 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:47:46.624 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:47:46.625 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:47:46.626 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:47:46.627 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:47:46.628 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:47:46.662 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:47:46.663 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:47:46.664 [info] Syncing profile. vscode_config
+2025-12-14 17:47:46.667 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:47:46.668 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:47:46.670 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:47:46.671 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:47:46.672 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:47:46.674 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:47:46.693 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:47:46.694 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:47:46.694 [info] Sync done. Took 1041ms
+2025-12-14 17:48:24.391 [info] [AutoSync] Triggered by Activity
+2025-12-14 17:48:24.391 [info] Sync started.
+2025-12-14 17:48:24.585 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:48:24.587 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:48:24.590 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:48:24.592 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:48:24.594 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:48:24.596 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:48:24.637 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:48:24.638 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:48:24.638 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:48:24.639 [info] Syncing profile. newvscode
+2025-12-14 17:48:24.640 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:48:24.642 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:48:24.643 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:48:24.644 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:48:24.646 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:48:24.647 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:48:24.681 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:48:24.682 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:48:24.683 [info] Syncing profile. vscode_config
+2025-12-14 17:48:24.686 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:48:24.688 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:48:24.691 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:48:24.695 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:48:24.696 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:48:24.698 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:48:24.720 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:48:24.721 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:48:24.722 [info] Sync done. Took 332ms
+2025-12-14 17:49:07.009 [info] [AutoSync] Triggered by Activity
+2025-12-14 17:49:07.009 [info] Sync started.
+2025-12-14 17:49:07.222 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:49:07.224 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:49:07.225 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:49:07.226 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:49:07.228 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:49:07.231 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:49:07.267 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:49:07.268 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:49:07.268 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:49:07.269 [info] Syncing profile. newvscode
+2025-12-14 17:49:07.270 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:49:07.272 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:49:07.274 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:49:07.275 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:49:07.276 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:49:07.277 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:49:07.311 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:49:07.313 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:49:07.313 [info] Syncing profile. vscode_config
+2025-12-14 17:49:07.316 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:49:07.317 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:49:07.319 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:49:07.321 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:49:07.323 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:49:07.328 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:49:07.349 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:49:07.351 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:49:07.352 [info] Sync done. Took 343ms
+2025-12-14 17:49:45.533 [info] [AutoSync] Triggered by Activity
+2025-12-14 17:49:45.533 [info] Sync started.
+2025-12-14 17:49:45.891 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:49:45.892 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:49:45.894 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:49:45.896 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:49:45.897 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:49:45.900 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:49:45.937 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:49:45.939 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:49:45.940 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:49:45.940 [info] Syncing profile. newvscode
+2025-12-14 17:49:45.941 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:49:45.944 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:49:45.946 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:49:45.947 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:49:45.948 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:49:45.949 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:49:45.994 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:49:45.996 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:49:45.996 [info] Syncing profile. vscode_config
+2025-12-14 17:49:46.001 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:49:46.004 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:49:46.008 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:49:46.011 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:49:46.015 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:49:46.019 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:49:46.046 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:49:46.048 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:49:46.049 [info] Sync done. Took 517ms
+2025-12-14 17:50:04.296 [info] [AutoSync] Triggered by Activity
+2025-12-14 17:50:04.297 [info] Sync started.
+2025-12-14 17:50:04.453 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:50:04.455 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:50:04.457 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:50:04.458 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:50:04.460 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:50:04.463 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:50:04.494 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:50:04.496 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:50:04.496 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:50:04.497 [info] Syncing profile. newvscode
+2025-12-14 17:50:04.498 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:50:04.499 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:50:04.500 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:50:04.501 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:50:04.502 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:50:04.503 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:50:04.533 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:50:04.534 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:50:04.534 [info] Syncing profile. vscode_config
+2025-12-14 17:50:04.536 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:50:04.537 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:50:04.539 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:50:04.540 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:50:04.541 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:50:04.543 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:50:04.559 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:50:04.560 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:50:04.561 [info] Sync done. Took 266ms
+2025-12-14 17:52:20.326 [info] [AutoSync] Triggered by Activity
+2025-12-14 17:52:20.326 [info] Sync started.
+2025-12-14 17:52:20.854 [info] Settings: No changes found during synchronizing settings.
+2025-12-14 17:52:20.856 [info] Keybindings: No changes found during synchronizing keybindings.
+2025-12-14 17:52:20.859 [info] Snippets: No changes found during synchronizing snippets.
+2025-12-14 17:52:20.860 [info] Tasks: No changes found during synchronizing tasks.
+2025-12-14 17:52:20.861 [info] Mcp: No changes found during synchronizing mcp.
+2025-12-14 17:52:20.864 [info] GlobalState: No changes found during synchronizing ui state.
+2025-12-14 17:52:20.895 [info] Extensions: No changes found during synchronizing extensions.
+2025-12-14 17:52:20.897 [info] Prompts: No changes found during synchronizing prompts.
+2025-12-14 17:52:20.898 [info] Profiles: No changes found during synchronizing profiles.
+2025-12-14 17:52:20.899 [info] Syncing profile. newvscode
+2025-12-14 17:52:20.901 [info] Settings (newvscode): No changes found during synchronizing settings.
+2025-12-14 17:52:20.904 [info] Keybindings (newvscode): No changes found during synchronizing keybindings.
+2025-12-14 17:52:20.905 [info] Snippets (newvscode): No changes found during synchronizing snippets.
+2025-12-14 17:52:20.906 [info] Tasks (newvscode): No changes found during synchronizing tasks.
+2025-12-14 17:52:20.907 [info] Mcp (newvscode): No changes found during synchronizing mcp.
+2025-12-14 17:52:20.908 [info] GlobalState (newvscode): No changes found during synchronizing ui state.
+2025-12-14 17:52:20.940 [info] Extensions (newvscode): No changes found during synchronizing extensions.
+2025-12-14 17:52:20.941 [info] Prompts (newvscode): No changes found during synchronizing prompts.
+2025-12-14 17:52:20.942 [info] Syncing profile. vscode_config
+2025-12-14 17:52:20.944 [info] Settings (vscode_config): No changes found during synchronizing settings.
+2025-12-14 17:52:20.945 [info] Keybindings (vscode_config): No changes found during synchronizing keybindings.
+2025-12-14 17:52:20.947 [info] Snippets (vscode_config): No changes found during synchronizing snippets.
+2025-12-14 17:52:20.948 [info] Tasks (vscode_config): No changes found during synchronizing tasks.
+2025-12-14 17:52:20.949 [info] Mcp (vscode_config): No changes found during synchronizing mcp.
+2025-12-14 17:52:20.951 [info] GlobalState (vscode_config): No changes found during synchronizing ui state.
+2025-12-14 17:52:20.970 [info] Extensions (vscode_config): No changes found during synchronizing extensions.
+2025-12-14 17:52:20.971 [info] Prompts (vscode_config): No changes found during synchronizing prompts.
+2025-12-14 17:52:20.972 [info] Sync done. Took 647ms

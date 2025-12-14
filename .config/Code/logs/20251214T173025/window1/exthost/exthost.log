@@ -1,0 +1,12 @@
+2025-12-14 17:30:26.460 [info] Extension host with pid 1134 started
+2025-12-14 17:30:26.460 [info] Skipping acquiring lock for /home/abhi/.config/Code/User/workspaceStorage/57e564a6693e986b8e5599bc9f3537b0.
+2025-12-14 17:30:26.503 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-14 17:30:26.526 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-14 17:30:26.575 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-14 17:30:26.588 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-14 17:30:26.627 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-14 17:30:26.754 [info] Eager extensions activated
+2025-12-14 17:30:26.763 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-14 17:30:26.766 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-14 17:31:59.935 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-14 17:31:59.950 [info] Extension host with pid 1134 exiting with code 0

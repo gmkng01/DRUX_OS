@@ -1,0 +1,10 @@
+2025-12-14 17:43:26.805 [info] Started local extension host with pid 8343.
+2025-12-14 17:43:27.375 [warning] [twxs.cmake]: Cannot register 'cmake.cmakePath'. This property is already registered.
+2025-12-14 17:43:28.319 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-14 17:43:28.945 [error] [Extension Host] (node:8343) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-14 17:43:28.946 [error] [Extension Host] (node:8343) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-14 17:43:29.021 [info] Settings Sync: Account status changed from uninitialized to available
+2025-12-14 17:43:29.555 [info] [perf] Render performance baseline is 34ms
+2025-12-14 17:43:29.655 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-14 17:43:30.477 [error] Failed to fetch MCP registry providers Server returned 404

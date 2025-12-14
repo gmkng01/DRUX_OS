@@ -1,0 +1,26 @@
+2025-12-14 17:47:39.109 [info] Client: Pylance client (2025.10.4) started with python extension (2025.20.0)
+2025-12-14 17:47:39.571 [info] (13244): Server root directory: file:///home/abhi/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-14 17:47:39.572 [info] (13244): Pylance language server 2025.10.4 (pyright version 1.1.407, commit 906e40aa) starting
+2025-12-14 17:47:39.575 [info] (13244): Starting service instance ".config" for workspace "/home/abhi/.config"
+2025-12-14 17:47:40.301 [info] (13244): Loading background bundle file:///home/abhi/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js into file:///home/abhi/.config...
+2025-12-14 17:47:40.393 [info] (13244): FG(.config): Setting environmentName for service ".config": "3.13.11 (global)"
+2025-12-14 17:47:40.393 [info] (13244): FG(.config): Setting pythonPath for service ".config": "/bin/python"
+2025-12-14 17:47:40.393 [info] (13244): FG(.config): No include entries specified; assuming /home/abhi/.config
+2025-12-14 17:47:40.394 [info] (13244): FG(.config): Auto-excluding **/node_modules
+2025-12-14 17:47:40.394 [info] (13244): FG(.config): Auto-excluding **/__pycache__
+2025-12-14 17:47:40.394 [info] (13244): FG(.config): Auto-excluding **/.*
+2025-12-14 17:47:40.415 [info] (13244): FG(.config): Assuming Python version 3.13.11.final.0
+2025-12-14 17:47:40.458 [info] (13244): Settings have not changed. Skipping update.
+2025-12-14 17:47:40.902 [info] (13244): FG(.config): Found 16 source files
+2025-12-14 17:47:40.904 [info] (13244): PQ(.config): Priority queue background worker(2) root directory: file:///home/abhi/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist
+2025-12-14 17:47:40.904 [info] (13244): PQ(.config): Priority queue background worker(2) started
+2025-12-14 17:47:41.020 [info] (13244): IDX(.config): Indexer background runner(3) root directory: file:///home/abhi/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist (index)
+2025-12-14 17:47:41.020 [info] (13244): IDX(.config): Indexing(3) started
+2025-12-14 17:47:41.121 [info] (13244): BG(.config): Loaded external background bundle file:///home/abhi/.vscode/extensions/ms-python.vscode-pylance-2025.10.4/dist/copilot-background.bundle.js. 
+2025-12-14 17:47:41.309 [info] (13244): IDX(.config): scanned(3) 54 files over 1 exec env
+2025-12-14 17:47:41.441 [info] (13244): IDX(.config): indexed(3) 54 files over 1 exec env
+2025-12-14 17:47:41.449 [info] (13244): IDX(.config): Indexing finished(3).
+2025-12-14 17:47:58.546 [info] (13244): Starting Mcp server id:5035 ...
+2025-12-14 17:48:50.090 [info] (13244): FG(.config): Found 17 source files
+2025-12-14 17:49:07.440 [info] (13244): FG(.config): Found 18 source files
+2025-12-14 17:52:08.162 [info] (13244): FG(.config): Found 19 source files

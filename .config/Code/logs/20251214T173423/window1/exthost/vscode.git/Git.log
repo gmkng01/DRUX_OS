@@ -1,0 +1,37 @@
+2025-12-14 17:34:27.218 [info] [main] Log level: Info
+2025-12-14 17:34:27.218 [info] [main] Validating found git in: "git"
+2025-12-14 17:34:27.218 [info] [main] Using git "2.52.0" from "git"
+2025-12-14 17:34:27.218 [info] [Model][doInitialScan] Initial repository scan started
+2025-12-14 17:34:27.218 [info] > git rev-parse --show-toplevel [11ms]
+2025-12-14 17:34:27.218 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [4ms]
+2025-12-14 17:34:27.218 [info] [Model][openRepository] Opened repository (path): /home/abhi/DRUX_OS
+2025-12-14 17:34:27.218 [info] [Model][openRepository] Opened repository (real path): /home/abhi/DRUX_OS
+2025-12-14 17:34:27.218 [info] [Model][openRepository] Opened repository (kind): repository
+2025-12-14 17:34:27.218 [info] > git rev-parse --show-toplevel [5ms]
+2025-12-14 17:34:27.218 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-12-14 17:34:27.218 [info] > git config --get commit.template [9ms]
+2025-12-14 17:34:27.218 [info] > git rev-parse --show-toplevel [41ms]
+2025-12-14 17:34:27.218 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [41ms]
+2025-12-14 17:34:27.222 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/abhi/DRUX_OS/.git/refs/remotes/origin/main'
+2025-12-14 17:34:27.223 [info] > git rev-parse --show-toplevel [10ms]
+2025-12-14 17:34:27.224 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-12-14 17:34:27.264 [info] > git rev-parse --show-toplevel [26ms]
+2025-12-14 17:34:27.264 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [30ms]
+2025-12-14 17:34:27.286 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-14 17:34:27.291 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-14 17:34:27.295 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-14 17:34:27.297 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-12-14 17:34:27.664 [info] > git check-ignore -v -z --stdin [2ms]
+2025-12-14 17:34:28.264 [info] > git status -z -uall [1036ms]
+2025-12-14 17:34:28.279 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-12-14 17:34:28.282 [info] > git config --get --local branch.main.vscode-merge-base [1ms]
+2025-12-14 17:34:28.285 [info] > git config --get commit.template [5ms]
+2025-12-14 17:34:28.287 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/main refs/remotes/origin/main [3ms]
+2025-12-14 17:34:28.289 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-12-14 17:34:28.291 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/abhi/DRUX_OS/.git/refs/remotes/origin/main'
+2025-12-14 17:34:28.292 [info] > git merge-base refs/heads/main refs/remotes/origin/main [3ms]
+2025-12-14 17:34:28.294 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-12-14 17:34:28.298 [info] > git diff --name-status -z --diff-filter=ADMR --find-renames=50% d84f3c8e3d674cd79da234866088719a5f623099...refs/remotes/origin/main -- [4ms]
+2025-12-14 17:34:28.298 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [1ms]
+2025-12-14 17:34:29.335 [info] > git status -z -uall [1040ms]
+2025-12-14 17:42:05.577 [info] > git check-ignore -v -z --stdin [1ms]

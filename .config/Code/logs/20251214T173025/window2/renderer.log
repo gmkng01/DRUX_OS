@@ -1,0 +1,9 @@
+2025-12-14 17:31:16.091 [info] Started local extension host with pid 1360.
+2025-12-14 17:31:16.564 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-14 17:31:16.708 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-14 17:31:18.710 [info] [perf] Render performance baseline is 15ms
+2025-12-14 17:31:25.220 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-12-14 17:31:25.398 [info] Started local extension host with pid 2309.
+2025-12-14 17:31:25.921 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-14 17:31:25.981 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-14 17:31:27.943 [info] [perf] Render performance baseline is 21ms

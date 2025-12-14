@@ -1,0 +1,28 @@
+2025-12-14 17:42:20.496 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-14 17:42:20.496 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-14 17:42:20.496 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-14 17:42:20.496 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-14 17:42:20.505 [info] Logged in as gmkng01
+2025-12-14 17:42:20.508 [info] Using the Electron fetcher.
+2025-12-14 17:42:20.911 [error] Copilot extension not found
+2025-12-14 17:42:20.955 [info] Creating node-pty shim: source=/opt/visual-studio-code/resources/app/node_modules/node-pty/build/Release, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/prebuilds/linux-x64
+2025-12-14 17:42:20.955 [info] Creating ripgrep shim: source=/opt/visual-studio-code/resources/app/node_modules/@vscode/ripgrep/bin, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64
+2025-12-14 17:42:20.971 [info] Found 1 entries to copy: pty.node
+2025-12-14 17:42:20.971 [info] Found 1 entries to copy: rg
+2025-12-14 17:42:20.992 [info] Got Copilot token for gmkng01
+2025-12-14 17:42:20.992 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-14 17:42:20.999 [info] activationBlocker from 'languageModelAccess' took for 110ms
+2025-12-14 17:42:21.039 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-14 17:42:21.039 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-14 17:42:21.042 [info] Registering default platform agent...
+2025-12-14 17:42:21.043 [info] [code-referencing] Public code references are enabled.
+2025-12-14 17:42:21.043 [info] activationBlocker from 'conversationFeature' took for 158ms
+2025-12-14 17:42:21.664 [info] GithubAvailableEmbeddingTypesManager: Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+2025-12-14 17:42:21.666 [info] WorkspaceChunkSearchService: using embedding type metis-1024-I16-Binary
+2025-12-14 17:42:32.266 [error] [CopilotCLISession] Failed to fetch models: TypeError: fetch failed
+2025-12-14 17:42:37.903 [info] Fetched model metadata in 17003ms e4b21aa0-d020-44c1-933a-51770cb4168f
+2025-12-14 17:42:38.108 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-14 17:42:38.109 [info] ccreq:891a6f8b.copilotmd | markdown
+2025-12-14 17:42:53.146 [info] Refetch model metadata: Succeeded in 10025ms c91082ed-60a8-4414-88cf-0777e2b9dac4 (A8D0:C490:33B851:45BF69:693EA9C1) using node-http with status 200.
+2025-12-14 17:42:54.920 [info] Refetch model metadata: Succeeded in 1773ms 279b91b2-e54c-46a1-911b-d7dced1cd640 (ED78:93295:35A0C2:47C80B:693EA9C5) using electron-fetch with status 200.
+2025-12-14 17:42:56.417 [info] Refetch model metadata: Succeeded in 1497ms 7bc6e7d6-0431-42c1-bdae-517e076ca51e (ED8C:1D135B:33309C:4542A1:693EA9C7) using node-fetch with status 200.

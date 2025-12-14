@@ -1,0 +1,25 @@
+2025-12-14 17:44:18.799 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-14 17:44:18.833 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-14 17:44:18.833 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-14 17:44:18.833 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-14 17:44:19.009 [info] Logged in as gmkng01
+2025-12-14 17:44:19.015 [info] Using the Electron fetcher.
+2025-12-14 17:44:19.272 [error] Copilot extension not found
+2025-12-14 17:44:19.306 [info] Creating node-pty shim: source=/opt/visual-studio-code/resources/app/node_modules/node-pty/build/Release, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/prebuilds/linux-x64
+2025-12-14 17:44:19.306 [info] Creating ripgrep shim: source=/opt/visual-studio-code/resources/app/node_modules/@vscode/ripgrep/bin, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64
+2025-12-14 17:44:19.309 [info] Found 1 entries to copy: pty.node
+2025-12-14 17:44:19.309 [info] Found 1 entries to copy: rg
+2025-12-14 17:44:19.789 [info] Got Copilot token for gmkng01
+2025-12-14 17:44:19.789 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-14 17:44:19.801 [info] activationBlocker from 'languageModelAccess' took for 563ms
+2025-12-14 17:44:19.857 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-14 17:44:19.857 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-14 17:44:19.876 [info] Registering default platform agent...
+2025-12-14 17:44:19.879 [info] [code-referencing] Public code references are enabled.
+2025-12-14 17:44:19.879 [info] activationBlocker from 'conversationFeature' took for 645ms
+2025-12-14 17:44:19.916 [info] BYOK: Copilot Chat known models list fetched successfully.
+2025-12-14 17:44:20.235 [info] GithubAvailableEmbeddingTypesManager: Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+2025-12-14 17:44:20.238 [info] WorkspaceChunkSearchService: using embedding type metis-1024-I16-Binary
+2025-12-14 17:44:20.749 [info] Fetched model metadata in 1494ms e5b15af4-8886-4f37-b079-19f4463160f0
+2025-12-14 17:44:21.054 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-14 17:44:21.055 [info] ccreq:a8d5dc22.copilotmd | markdown

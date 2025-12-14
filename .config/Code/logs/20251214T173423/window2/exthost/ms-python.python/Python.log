@@ -1,0 +1,12 @@
+2025-12-14 17:41:06.273 [info] Native locator: Refresh started
+2025-12-14 17:41:06.340 [info] Native locator: Refresh started
+2025-12-14 17:41:06.373 [info] > pyenv which python
+2025-12-14 17:41:06.373 [info] cwd: .
+2025-12-14 17:41:06.465 [info] Native locator: Refresh finished in 190 ms
+2025-12-14 17:41:06.479 [info] Python interpreter path: /bin/python
+2025-12-14 17:41:08.267 [info] Starting Pylance language server.
+2025-12-14 17:42:03.993 [error] Unable to find workspace for given file
+2025-12-14 17:42:07.699 [error] Unable to find workspace for given file
+2025-12-14 17:42:20.534 [error] Unable to find workspace for given file
+2025-12-14 17:42:20.950 [info] > conda info --json
+2025-12-14 17:42:48.550 [error] Unable to find workspace for given file

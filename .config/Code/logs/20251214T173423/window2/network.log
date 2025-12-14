@@ -1,0 +1,4 @@
+2025-12-14 17:40:57.296 [error] #8: https://marketplace.visualstudio.com/_apis/public/gallery/vscode/ms-azuretools/vscode-containers/latest - error GET Canceled
+2025-12-14 17:40:57.296 [error] #9: https://marketplace.visualstudio.com/_apis/public/gallery/vscode/github/copilot/latest - error GET Canceled
+2025-12-14 17:40:57.296 [error] #10: https://marketplace.visualstudio.com/_apis/public/gallery/vscode/eamodio/gitlens/latest - error GET Canceled
+2025-12-14 17:40:57.296 [error] #6: https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery - error POST Canceled

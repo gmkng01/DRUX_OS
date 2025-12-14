@@ -1,0 +1,27 @@
+2025-12-14 17:43:29.298 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-14 17:43:29.298 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-14 17:43:29.298 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-14 17:43:29.298 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-14 17:43:29.614 [error] Copilot extension not found
+2025-12-14 17:43:29.651 [info] Creating node-pty shim: source=/opt/visual-studio-code/resources/app/node_modules/node-pty/build/Release, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/prebuilds/linux-x64
+2025-12-14 17:43:29.651 [info] Creating ripgrep shim: source=/opt/visual-studio-code/resources/app/node_modules/@vscode/ripgrep/bin, dest=/home/abhi/.vscode/extensions/github.copilot-chat-0.35.0/node_modules/@github/copilot/sdk/ripgrep/bin/linux-x64
+2025-12-14 17:43:29.795 [info] Found 1 entries to copy: pty.node
+2025-12-14 17:43:29.796 [info] Found 1 entries to copy: rg
+2025-12-14 17:43:29.828 [info] Logged in as gmkng01
+2025-12-14 17:43:29.832 [info] Using the Electron fetcher.
+2025-12-14 17:43:30.323 [info] Got Copilot token for gmkng01
+2025-12-14 17:43:30.323 [info] Copilot Chat: 0.35.0, VS Code: 1.107.0
+2025-12-14 17:43:30.330 [info] activationBlocker from 'languageModelAccess' took for 744ms
+2025-12-14 17:43:30.378 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-14 17:43:30.378 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-14 17:43:30.391 [info] Registering default platform agent...
+2025-12-14 17:43:30.392 [info] [code-referencing] Public code references are enabled.
+2025-12-14 17:43:30.392 [info] activationBlocker from 'conversationFeature' took for 812ms
+2025-12-14 17:43:30.396 [info] GithubAvailableEmbeddingTypesManager: Got embeddings. Primary: metis-1024-I16-Binary. Deprecated: 
+2025-12-14 17:43:30.398 [info] WorkspaceChunkSearchService: using embedding type metis-1024-I16-Binary
+2025-12-14 17:43:30.445 [info] BYOK: Copilot Chat known models list fetched successfully.
+2025-12-14 17:43:31.076 [info] Fetched model metadata in 1477ms 3a12b148-3aa0-4726-882e-c34bd61820a0
+2025-12-14 17:43:31.451 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-14 17:43:31.451 [info] ccreq:ca114d17.copilotmd | markdown
+2025-12-14 17:43:32.687 [error] GithubCodeSearchService::getRemoteIndexState(gmkng01/drux_os). Failed to fetch indexing status. Response: 404. {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+2025-12-14 17:43:32.687 [error] CodeSearchChunkSearch::getIndexedStatus(gmkng01/drux_os). Failed to fetch indexing status. Encountered error: Error: Failed to fetch indexing status. Response: 404.
