@@ -44,10 +44,11 @@ floating_layout = Floating(
          Match(wm_class='kdeconnect-app'),         # Conectivity to the Smartphone
          Match(wm_class='mpv'),                    # MPV video player
          Match(wm_class='vlc'),                    # VLC video player  
-         Match(wm_class='terminator'),             # Terminator  
+         # Match(wm_class='terminator'),             # Terminator  
          Match(wm_class='qbittorrent'),            # QbitTorrent
          Match(wm_class='nm-connection-editor'),   # Network Manager GUI
-         Match(wm_class='try.py'),   # Theme changer
+         Match(wm_class='UI.py'),   # Theme changer
+
     ]
 )
 

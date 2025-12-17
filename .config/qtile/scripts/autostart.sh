@@ -3,6 +3,7 @@
 
 picom --no-fading-openclose &
 nm-applet &
+blueman-applet &
 volctl &
 nitrogen --restore &
 lxsession &

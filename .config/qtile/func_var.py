@@ -4,7 +4,14 @@ import Color_picker as cp
 
 home = os.path.expanduser('~')
 
-co = cp.wall_color
+# a = True
+
+# if a is True:
+    # co = colors.snow_with_ash
+
+
+
+co = colors.black_gray
 fix = colors.changable
 
 bk = co['bk']
@@ -49,7 +56,7 @@ with open(config_rasi_path, 'w') as f:
 va = {
     "browser" :                 "firefox",
     "trml":                     "terminator",
-    "fl_trml":                  "alacritty2",
+    "fl_trml":                  "alacritty",
     "code":                     f"{home}/.config/qtile/scripts/VScode_transparent.sh",
     # "rofi_menu":                "rofi -show drun -theme ~/.config/rofi/launchers/type-1/style-7.rasi",
     # "rofi_windows":             "rofi -show window -theme ~/.config/rofi/launchers/type-1/style-7.rasi",
@@ -60,7 +67,7 @@ va = {
     "wall":                     "sxiv -t ~/Pictures/wall",
     "file_manager":             "pcmanfm",
     "bluetooth":                "blueman-manager",
-    "theme_changer":            f"{home}/.config/qtile/scripts/try.py",
+    "theme_changer":            f"{home}/.config/qtile/UI.py",
     "vol_mute":                 f"{home}/.config/qtile/scripts/vol.sh mute",
     "vol_down":                 f"{home}/.config/qtile/scripts/vol.sh down",
     "vol_up":                   f"{home}/.config/qtile/scripts/vol.sh up",

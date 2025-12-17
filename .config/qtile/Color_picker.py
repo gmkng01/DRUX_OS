@@ -20,6 +20,7 @@ def extract_text(filename):
 
 # Example usage
 wall_path = extract_text(f"{home}/.config/nitrogen/bg-saved.cfg")
+# lock_wall = extract_text(f"{home}/.config/qtile/scripts/test.py")
 
 ct = ColorThief(wall_path)
 palette = ct.get_palette(color_count=5)
@@ -36,4 +37,4 @@ wall_color = {
 # print("Color 3:", color3)
 # print("Color 4:", color4)
 # print("Color 5:", color5)
-# print(wall_color)
+# print(lock_wall)

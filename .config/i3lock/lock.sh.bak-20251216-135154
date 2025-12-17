@@ -47,7 +47,7 @@ i3lock \
   --noinput="No Input" \
   --lock-text="Locking..." \
   --lockfailed="Lock Failed" \
-  --image="/home/abhi/Pictures/walls/095f80116031235.606df6086f178.jpg" \
+  --image="/home/abhi/Pictures/walls/2024-Kimera-K39-001-2160.jpg" \
   --fill \
   --time-font="NFS Font" \
   --date-font="NFS Font" \

@@ -58,8 +58,8 @@ i3lock \
   --date-align=1 \
   --date-size=60 \
   --time-size=175 \
-  --time-pos="110:200" \
-  --date-pos="100:250" \
+  --time-pos="710:200" \
+  --date-pos="700:250" \
   --ind-pos="950:942"\
   --bar-pos="-10:860" \
   --bar-base-width=10 \

@@ -136,7 +136,7 @@ programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6
+    ripgrep xfce4-power-manager python-pyqt6 Zenity
 )
 
 # List of AUR packages
@@ -217,6 +217,7 @@ copy_system_configs() {
     sudo cp 99-removable.rules /etc/udev/rules.d/
     sudo cp -rT lightdm /etc/lightdm
     sudo cp -rT grub /boot/grub/
+    sudo cp -rT walls/background.jpeg /usr/share/pixmaps/background.jpeg
 }
 
 enable_services() {
