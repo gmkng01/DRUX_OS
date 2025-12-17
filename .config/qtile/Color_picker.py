@@ -1,7 +1,6 @@
 import os
 # import colorsys
 import re
-
 from colorthief import ColorThief
 
 home = os.path.expanduser("~")

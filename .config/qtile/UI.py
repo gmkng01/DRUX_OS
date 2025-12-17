@@ -21,6 +21,12 @@ import time
 from pathlib import Path
 from typing import List
 
+# import func_var
+# # import os
+# # import colorsys
+# # import re
+# from colorthief import ColorThief
+
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 # from func_var import bk, fr, bk2, fr2, gr, trn
@@ -217,6 +223,13 @@ def safe_update_lock_script(image_path: str, time_pos: str = None, date_pos: str
             content = re.sub(r'^\s*fr2\s*=.*$', f'fr2="{fr2}"', content, flags=re.MULTILINE)
         else:
             content = f'fr2="{fr2}"\n' + content
+
+
+
+    
+
+
+
 
     # Replace/add --image
     if '--image=' in content:
@@ -545,22 +558,99 @@ class MainWindow(QtWidgets.QWidget):
     # ------------------- Apply logic ----------------------------------------
     
     # ... (ALL apply, theme, and radio toggle methods remain UNCHANGED in content) ...
+    # def apply_image_at_path(self, path: str):
+    #     try:
+    #         if self.radio_desktop.isChecked():
+    #             self._apply_desktop(path)
+    #         elif self.radio_lock.isChecked():
+    #             idx = self.pos_combo.currentIndex()
+    #             tpos, dpos = self.pos_combo.itemData(idx) if idx >= 0 else (None, None)
+                
+    #             fr = "#2C3333"
+    #             fr2 = "#444444" 
+                
+    #             safe_update_lock_script(path, time_pos=tpos, date_pos=dpos, fr=fr, fr2=fr2)
+    #         elif self.radio_login.isChecked():
+    #             self.set_login_wallpaper(path)
+    #     except Exception as e:
+    #         QtWidgets.QMessageBox.critical(self, "Error", str(e))
+
+
+
+
     def apply_image_at_path(self, path: str):
         try:
             if self.radio_desktop.isChecked():
                 self._apply_desktop(path)
+                
             elif self.radio_lock.isChecked():
+                # --- Dynamic Color Extraction Logic ---
+                import func_var
+                from colorthief import ColorThief
+                
+                # Default colors from your current config
+                current_colors = func_var.co
+                
+                # Extract colors from the wallpaper
+                ct = ColorThief(path)
+                palette = ct.get_palette(color_count=2)
+                
+                # Format extracted colors to Hex
+                wc = {
+                    "fr": f"#{palette[0][0]:02X}{palette[0][1]:02X}{palette[0][2]:02X}",
+                    "fr2": f"#{palette[1][0]:02X}{palette[1][1]:02X}{palette[1][2]:02X}",
+                }
+
+                # Determine which colors to use based on your QTile setting
+                if func_var.co == func_var.cp.wall_color:
+                    chosen_colors = wc
+                else:
+                    chosen_colors = current_colors
+                
+                # Get the lock position from the UI
                 idx = self.pos_combo.currentIndex()
                 tpos, dpos = self.pos_combo.itemData(idx) if idx >= 0 else (None, None)
                 
-                fr = "#2C3333"
-                fr2 = "#444444" 
+                # Apply the colors to the lock script
+                safe_update_lock_script(
+                    path, 
+                    time_pos=tpos, 
+                    date_pos=dpos, 
+                    fr=chosen_colors['fr'], 
+                    fr2=chosen_colors['fr2']
+                )
                 
-                safe_update_lock_script(path, time_pos=tpos, date_pos=dpos, fr=fr, fr2=fr2)
             elif self.radio_login.isChecked():
                 self.set_login_wallpaper(path)
+                
         except Exception as e:
-            QtWidgets.QMessageBox.critical(self, "Error", str(e))
+            QtWidgets.QMessageBox.critical(self, "Error", f"Failed to apply: {str(e)}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
     def on_apply_image(self):
         if not self.image_path:

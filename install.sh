@@ -130,7 +130,7 @@ cd mirror && ./get_mirror.sh && cd ~
 
 # List of packages from official repos
 programs=(
-    qtile neovim git htop curl wget firefox lxsession terminator rofi picom
+    qtile neovim git htop curl wget firefox polkit-gnome terminator rofi picom
     font-manager blueman bluez bluez-utils pulseaudio pavucontrol
     brightnessctl pamixer alsa-plugins alsa-utils pulseaudio-bluetooth
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
