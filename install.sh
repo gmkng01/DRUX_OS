@@ -224,6 +224,15 @@ enable_services() {
     echo "==> Enabling services..."
     sudo systemctl enable bluetooth
     sudo systemctl start bluetooth
+    systemctl --user status trayer.service
+    systemctl --user status volctl.service
+    systemctl --user status wallpaper.service
+    systemctl --user status polkit.service
+    systemctl --user status picom.service
+    systemctl --user status nm-applet.service
+    systemctl --user status graphical-session.service
+    systemctl --user status blueman-applet.service
+    systemctl --user status battery-low.service
 }
 
 final_touches() {
