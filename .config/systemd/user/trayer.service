@@ -1,0 +1,11 @@
+[Unit]
+Description=Trayer (system tray)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python3 /home/abhi/.config/qtile/trayer.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

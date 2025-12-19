@@ -1,1 +1,1 @@
-auto_sync_configurations
+hook

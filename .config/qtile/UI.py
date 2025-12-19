@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import List
 
 # import func_var
-# # import os
+# # import os``
 # # import colorsys
 # # import re
 # from colorthief import ColorThief
@@ -223,13 +223,6 @@ def safe_update_lock_script(image_path: str, time_pos: str = None, date_pos: str
             content = re.sub(r'^\s*fr2\s*=.*$', f'fr2="{fr2}"', content, flags=re.MULTILINE)
         else:
             content = f'fr2="{fr2}"\n' + content
-
-
-
-    
-
-
-
 
     # Replace/add --image
     if '--image=' in content:
@@ -451,7 +444,7 @@ class MainWindow(QtWidgets.QWidget):
         self.preview_label.resizeEvent = self.on_preview_label_resized
 
 
-    # --- New method to handle preview image resizing ---
+    # --- method to handle preview image resizing ---
     def on_preview_label_resized(self, event):
         """Re-scales the preview image when the label container is resized."""
         if self.image_path:
@@ -626,32 +619,6 @@ class MainWindow(QtWidgets.QWidget):
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Error", f"Failed to apply: {str(e)}")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
     def on_apply_image(self):
         if not self.image_path:
             QtWidgets.QMessageBox.warning(self, "No image", "Please select an image (from gallery) first.")
@@ -719,19 +686,19 @@ class MainWindow(QtWidgets.QWidget):
         except Exception:
             pass 
 
-        QtWidgets.QMessageBox.information(self, "Success", f"Login wallpaper copied to {dest}")
+        QtWidgets.QMessageBox.information(self, "Success", f"Login wallpaper changed")
 
-        reply = QtWidgets.QMessageBox.question(
-            self,
-            "Restart SDDM?",
-            "Restarting SDDM will log out your session. Do you want to restart SDDM now?",
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No
-        )
-        if reply == QtWidgets.QMessageBox.StandardButton.Yes:
-            try:
-                subprocess.run(["sudo", "systemctl", "restart", "lightdm"], check=True)
-            except Exception as e:
-                QtWidgets.QMessageBox.critical(self, "Restart failed", f"Failed to restart sddm: {e}")
+        # reply = QtWidgets.QMessageBox.question(
+        #     self,
+        #     "Restart SDDM?",
+        #     "Restarting SDDM will log out your session. Do you want to restart SDDM now?",
+        #     QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No
+        # )
+        # if reply == QtWidgets.QMessageBox.StandardButton.Yes:
+        #     try:
+        #         subprocess.run(["sudo", "systemctl", "restart", "lightdm"], check=True)
+        #     except Exception as e:
+        #         QtWidgets.QMessageBox.critical(self, "Restart failed", f"Failed to restart sddm: {e}")
 
 
     def on_apply_theme(self):

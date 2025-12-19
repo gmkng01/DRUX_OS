@@ -6,6 +6,8 @@ from libqtile import layout, hook
 from libqtile.config import Match
 from libqtile.layout import Floating
 from keybindings import mykeys, mymouse
+# import os
+import subprocess
 
 screens =   mybar
 keys =      mykeys
@@ -86,14 +88,32 @@ wl_input_rules = None
 
 wmname = "LG3D"
 
-@hook.subscribe.startup_once
-def autostart():
-   home = os.path.expanduser('~')
-   Popen([home + '/.config/qtile/scripts/autostart.sh'])
+
+# import subprocess
+
+
+# @hook.subscribe.startup_once
+
+
+subprocess.run([
+    "systemctl", "--user", "import-environment",
+    "DISPLAY", "XAUTHORITY"
+])
+
+subprocess.run([
+    "systemctl", "--user", "start", "graphical-session.target"
+])
+
+
+
+# @hook.subscribe.startup_once
+# def autostart():
+#    home = os.path.expanduser('~')
+#    Popen([home + '/.config/qtile/scripts/autostart.sh'])
    #  tr = f'trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 0 --distance 0 --distancefrom top'    
-   tr = f"{home}/.config/qtile/trayer.py"
-   Popen(tr, shell=True)
-   Popen([home + '/.config/qtile/scripts/battery_low.sh'])
+   # tr = f"{home}/.config/qtile/trayer.py"
+   # Popen(tr, shell=True)
+   # Popen([home + '/.config/qtile/scripts/battery_low.sh'])
    # Popen('volctl')
 
 

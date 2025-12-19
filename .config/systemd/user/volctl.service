@@ -1,0 +1,10 @@
+[Unit]
+Description=Volume control tray app
+
+
+[Service]
+ExecStart=/usr/bin/volctl
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
