@@ -21,11 +21,8 @@ import time
 from pathlib import Path
 from typing import List
 
-# import func_var
-# # import os``
-# # import colorsys
-# # import re
-# from colorthief import ColorThief
+import func_var
+
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 
@@ -38,7 +35,7 @@ NITROGEN_CFG_PATH = HOME / ".config" / "nitrogen" / "bg-saved.cfg"
 LOCK_SCRIPT_PATH = HOME / ".config" / "i3lock" / "lock.sh"
 LOGIN_IMAGE_DEST = Path("/usr/share/pixmaps/background.jpeg")
 QTILE_FUNC_VAR = HOME / ".config" / "qtile" / "func_var.py"
-TRAYER_PY = HOME / ".config" / "qtile" / "trayer.py"
+# TRAYER_PY = HOME / ".config" / "qtile" / "trayer.py"
 COLOR_CHANGER_SH = Path.cwd() / "color_changer.sh"
 THUMB_SIZE = 158
 BATCH_SIZE = 12     # thumbnails per batch
@@ -49,7 +46,7 @@ THUMB_CACHE_DIR_NAME = ".wall_thumbs" # Hidden folder for cache
 FONT_FAMILY = "JetBrainsMono Nerd Font"   
 FONT_SIZE = 12
 
-co = cp.wall_color
+co = func_var.co
 fix = colors.changable
 
 bk = co['bk']
@@ -157,6 +154,13 @@ def run_shell(cmd, check=False, shell=False):
         return subprocess.run(cmd, shell=True, check=check)
     else:
         return subprocess.run(cmd, check=check)
+
+def systemd_restart(service: str):
+    subprocess.run(
+        ["systemctl", "--user", "restart", service],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
 
 # --------------------------- CACHING UTILITIES -----------------------------
 
@@ -645,12 +649,20 @@ class MainWindow(QtWidgets.QWidget):
         except Exception:
             pass
         
-        chained = 'qtile cmd-obj -o cmd -f restart && source ./color_changer.sh && sleep 3 && "{}" &'.format(
-            TRAYER_PY
-        )
-        run_shell(chained, shell=True)
-        run_shell('sleep 1', shell=True)
-        run_shell(f'"{TRAYER_PY}"', shell=True)
+        # chained = 'qtile cmd-obj -o cmd -f restart && source ./color_changer.sh && sleep 3 && "{}" &'.format(
+        #     TRAYER_PY
+        # )
+        # run_shell(chained, shell=True)
+        # run_shell('sleep 1', shell=True)
+        # run_shell(f'"{TRAYER_PY}"', shell=True)
+
+        run_shell(["qtile", "cmd-obj", "-o", "cmd", "-f", "restart"])
+
+        if COLOR_CHANGER_SH.exists():
+            run_shell(["bash", str(COLOR_CHANGER_SH)])
+
+        systemd_restart("trayer.service")
+
 
 
     def set_login_wallpaper(self, image_path: str, dest: Path = LOGIN_IMAGE_DEST):
@@ -732,10 +744,16 @@ class MainWindow(QtWidgets.QWidget):
     def on_apply_choose_wallpaper_theme(self):
         try:
             self._set_qtile_theme_value("cp.wall_color")
+            # if COLOR_CHANGER_SH.exists():
+            #     run_shell(f"source \"{COLOR_CHANGER_SH}\"", shell=True)
+            # if TRAYER_PY.exists():
+            #     run_shell(f'"{TRAYER_PY}"', shell=True)
+
+
             if COLOR_CHANGER_SH.exists():
-                run_shell(f"source \"{COLOR_CHANGER_SH}\"", shell=True)
-            if TRAYER_PY.exists():
-                run_shell(f'"{TRAYER_PY}"', shell=True)
+                run_shell(["bash", str(COLOR_CHANGER_SH)])
+
+            systemd_restart("trayer.service")   
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Error", str(e))
 
@@ -753,9 +771,9 @@ class MainWindow(QtWidgets.QWidget):
             
         run_shell(["qtile", "cmd-obj", "-o", "cmd", "-f", "restart"])
         if COLOR_CHANGER_SH.exists():
-            run_shell(f"source \"{COLOR_CHANGER_SH}\"", shell=True)
-        if TRAYER_PY.exists():
-            run_shell(f'"{TRAYER_PY}"', shell=True)
+            run_shell(["bash", str(COLOR_CHANGER_SH)])
+
+        systemd_restart("trayer.service")
 
     def on_action_toggled(self, _=None):
         lock_selected = self.radio_lock.isChecked()
