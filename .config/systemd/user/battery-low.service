@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 
 [Service]
-ExecStart=%h/.config/scripts/battery_low.sh
+ExecStart=/usr/bin/env python3 /home/abhi/.config/qtile/services/trayer.py
 Restart=always
 RestartSec=10
 

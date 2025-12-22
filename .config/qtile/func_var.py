@@ -1,5 +1,6 @@
-import colors, os
-import Color_picker as cp
+import themes.colors as colors
+import os
+import themes.Color_picker as cp
 # import subprocess
 
 home = os.path.expanduser('~')
@@ -11,7 +12,7 @@ home = os.path.expanduser('~')
 
 
 
-co = cp.wall_color
+co = colors.halloween
 fix = colors.changable
 
 bk = co['bk']
@@ -67,7 +68,7 @@ va = {
     "wall":                     "sxiv -t ~/Pictures/wall",
     "file_manager":             "pcmanfm",
     "bluetooth":                "blueman-manager",
-    "theme_changer":            f"{home}/.config/qtile/UI.py",
+    "theme_changer":            f"{home}/.config/qtile/control/wall_center.py",
     "vol_mute":                 f"{home}/.config/qtile/scripts/vol.sh mute",
     "vol_down":                 f"{home}/.config/qtile/scripts/vol.sh down",
     "vol_up":                   f"{home}/.config/qtile/scripts/vol.sh up",
@@ -82,9 +83,9 @@ va = {
     "screenshot_window":        'sh -c "xfce4-screenshooter -w --clipboard --save ~/Pictures/Screenshots/Screenshot_$(date +\'%Y-%m-%d_%H:%M:%S\').png"',
     "screenshot_region":        'sh -c "xfce4-screenshooter -r --clipboard --save ~/Pictures/Screenshots/Screenshot_$(date +\'%Y-%m-%d_%H:%M:%S\').png"',
     "screenshot_gui":           "xfce4-screenshooter",
-    "trayer":                   f"killall trayer && trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 10 --distance 10 --distancefrom top",
+    # "trayer":                   f"killall trayer && trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 10 --distance 10 --distancefrom top",
     "lock_screen":              f"{home}/.config/i3lock/lock.sh",
-    "wall_change":              f"{home}/.config/qtile/scripts/rofi_wall.py"
+    # "wall_change":              f"{home}/.config/qtile/scripts/rofi_wall.py"
     # "lock_screen":              "betterlockscreen -l"
     }
 

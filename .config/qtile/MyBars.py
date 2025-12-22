@@ -3,10 +3,9 @@ from libqtile import  widget
 from func_var import name
 from libqtile.bar import Bar
 from libqtile.lazy import lazy
-from battery import BatteryWidget
+from services.battery import BatteryWidget
 from libqtile.config import Group, Match, Screen
-from func_var import bk, fr, bk2, fr2, gr, trn, urgent  ## Colors
-from func_var import widget_font, widget_font_symbols  ## Font
+from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widget_font_symbols
 # from qtile_extras import  widget as xwidget
 # from test import NumLockIndicator
 

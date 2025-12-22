@@ -9,9 +9,9 @@ from libqtile import qtile
 
 home = os.path.expanduser('~')
 
-def trayer():
-    tr = f'killall trayer && trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 10 --distance 10 --distancefrom top'    
-    Popen(tr, shell=True)
+# def trayer():
+#     tr = f'killall trayer && trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 10 --distance 10 --distancefrom top'    
+#     Popen(tr, shell=True)
 
 mykeys = [
         ### The essentials launches
@@ -36,8 +36,8 @@ mykeys = [
         Key(["mod4", "shift"], "n", lazy.spawn(name['rofi_file']), 
             desc = "Launchs Rofi FileBrowser launcher"),
         
-        Key(["mod4"], "w", lazy.spawn(name['wall_change']), 
-            desc='Launches My Terminal'),
+        # Key(["mod4"], "w", lazy.spawn(name['wall_change']), 
+        #     desc='Launches My Terminal'),
 
         # Key(["mod1"], "p", lazy.spawn("sxiv -t ~/Pictures/wall"), 
         #     desc = "Wallpaper Changer"),
