@@ -26,7 +26,6 @@ from typing import List
 
 import func_var
 
-
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 # from func_var import bk, fr, bk2, fr2, gr, trn
@@ -158,12 +157,12 @@ def run_shell(cmd, check=False, shell=False):
     else:
         return subprocess.run(cmd, check=check)
 
-def systemd_restart(service: str):
-    subprocess.run(
-        ["systemctl", "--user", "restart", service],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
+# def systemd_restart(service: str):
+#     subprocess.run(
+#         ["killall", "trayer", "&", "sleep", "1", "&", "systemctl", "--user", "start", service],
+#         stdout=subprocess.DEVNULL,
+#         stderr=subprocess.DEVNULL,
+#     )
 
 # --------------------------- CACHING UTILITIES -----------------------------
 
@@ -664,7 +663,8 @@ class MainWindow(QtWidgets.QWidget):
         if COLOR_CHANGER_SH.exists():
             run_shell(["bash", str(COLOR_CHANGER_SH)])
 
-        systemd_restart("trayer.service")
+        run_shell(["systemctl", "--user", "restart", "trayer.service"])
+        # systemd_restart("trayer.service")
 
 
 
@@ -756,7 +756,9 @@ class MainWindow(QtWidgets.QWidget):
             if COLOR_CHANGER_SH.exists():
                 run_shell(["bash", str(COLOR_CHANGER_SH)])
 
-            systemd_restart("trayer.service")   
+            # systemd_restart("trayer.service")
+            run_shell(["systemctl", "--user", "restart", "trayer.service"])
+              
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Error", str(e))
 
@@ -776,7 +778,8 @@ class MainWindow(QtWidgets.QWidget):
         if COLOR_CHANGER_SH.exists():
             run_shell(["bash", str(COLOR_CHANGER_SH)])
 
-        systemd_restart("trayer.service")
+        # systemd_restart("trayer.service")
+        run_shell(["systemctl", "--user", "restart", "trayer.service"])
 
     def on_action_toggled(self, _=None):
         lock_selected = self.radio_lock.isChecked()

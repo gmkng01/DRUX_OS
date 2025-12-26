@@ -6,8 +6,8 @@ background='#282a36'
 selection='#44475a'
 comment='#6272a4'
 font='#DDDDDD'
-fr="#AAAAAA"
-fr2="#3A3A3A"
+fr="#A6A6A6"
+fr2="#BFBFBF"
 
 yellow='#f1fa8c'
 orange='#ffb86c'
@@ -47,7 +47,7 @@ i3lock \
   --noinput="No Input" \
   --lock-text="Locking..." \
   --lockfailed="Lock Failed" \
-  --image="/home/abhi/Pictures/walls/r93oi0tii90g1.png" \
+  --image="/home/abhi/Pictures/walls/agpzy3jliz491.png" \
   --fill \
   --time-font="NFS Font" \
   --date-font="NFS Font" \

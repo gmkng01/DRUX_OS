@@ -1,6 +1,6 @@
 [Unit]
 Description=Blueman Applet
-
+After=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/blueman-applet

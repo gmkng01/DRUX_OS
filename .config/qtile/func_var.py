@@ -12,7 +12,7 @@ home = os.path.expanduser('~')
 
 
 
-co = colors.halloween
+co = cp.wall_color
 fix = colors.changable
 
 bk = co['bk']

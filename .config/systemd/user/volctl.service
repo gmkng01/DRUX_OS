@@ -1,6 +1,6 @@
 [Unit]
 Description=Volume control tray app
-
+After=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/volctl
