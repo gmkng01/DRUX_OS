@@ -136,7 +136,7 @@ programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6 Zenity
+    ripgrep xfce4-power-manager python-pyqt6 Zenity fish
 )
 
 # List of AUR packages
@@ -235,6 +235,16 @@ enable_services() {
     systemctl --user status battery-low.service
 }
 
+adding_starship_promt(){
+    echo "==> Installing Starship Prompt"
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+}
+
+change_shell_fish(){
+    echo "==> Changing shel Bash to Fish"
+    chsh -s "$(command -v fish)"
+}
+
 final_touches() {
     echo "==> Final touches..."
 
@@ -252,6 +262,8 @@ main() {
     copy_configs
     copy_system_configs
     enable_services
+    adding_starship_promt
+    change_shell_fish
     final_touches
     echo "🎉 Installation complete!"
 
