@@ -51,7 +51,7 @@ os.environ.setdefault("XAUTHORITY", os.path.expanduser("~/.Xauthority"))
 cmd = [
     "/usr/bin/trayer",
     "--transparent", "true",
-    "--width", "6",
+    "--width", "4",
     "--edge", "top",
     "--align", "right",
     "--alpha", "0",

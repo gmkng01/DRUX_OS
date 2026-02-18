@@ -1,4 +1,5 @@
 from libqtile import  widget
+import subprocess, re
 # from libqtile import qtile
 from func_var import name
 from libqtile.bar import Bar
@@ -6,8 +7,54 @@ from libqtile.lazy import lazy
 from services.battery import BatteryWidget
 from libqtile.config import Group, Match, Screen
 from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widget_font_symbols
-# from qtile_extras import  widget as xwidget
-# from test import NumLockIndicator
+
+def get_vol():
+    out = subprocess.run(
+        ["pactl", "get-sink-volume", "@DEFAULT_SINK@"],
+        capture_output=True,
+        text=True
+    ).stdout
+    match = re.search(r'(\d+)%', out)
+    return int(match.group(1)) if match else 0
+
+def is_muted():
+    out = subprocess.run(
+        ["pactl", "get-sink-mute", "@DEFAULT_SINK@"],
+        capture_output=True,
+        text=True
+    ).stdout
+    return "yes" in out
+
+
+def is_bluetooth_sink():
+    import subprocess
+
+    out = subprocess.run(
+        ["pactl", "get-default-sink"],
+        capture_output=True,
+        text=True
+    ).stdout.lower()
+
+    return "bluez" in out or "bluetooth" in out
+
+def vol_text():
+    vol = get_vol()
+    muted = is_muted()
+    bt = is_bluetooth_sink()
+
+    if muted:
+        return "󰖁 MUTE"    
+
+    if vol==0:
+        text = f"󰕿 {vol} "
+    elif vol <=35:
+        text=f"󰖀 {vol} "
+    else:
+        text=f"󰕾 {vol} "
+
+    if bt:
+        text += "  󰂰"
+    return text
 
 mybar = [
     Screen
@@ -198,7 +245,29 @@ mybar = [
                                         text = '',
                                         font = widget_font_symbols,
                                         background = bk2,
-                                        foreground = bk,
+                                        foreground = fr,
+                                        padding = 0,
+                                        fontsize = 24
+                                        ),
+
+                                widget.TextBox(
+                                        text = ' ',
+                                        font = widget_font_symbols,
+                                        background = fr,
+                                        foreground = bk2,
+                                        padding = 0,
+                                        fontsize = 24,
+
+                                        mouse_callbacks={
+                                                "Button1": lazy.spawn(name['night_light'])
+                                        },
+                                        ),
+
+                                widget.TextBox(
+                                        text = '',
+                                        font = widget_font_symbols,
+                                        background = fr,
+                                        foreground = bk2,
                                         padding = 0,
                                         fontsize = 24
                                         ),
@@ -210,7 +279,7 @@ mybar = [
                                         padding = 5,
                                         # prefix = 100
                                         width = 150,
-                                        foreground = fr,
+                                        foreground = fr2,
                                         background =  bk
                                         ),
                                 widget.TextBox(
@@ -264,8 +333,21 @@ mybar = [
                         background = bk,
                         foreground = fr,
                         padding = 0,
-                        fontsize = 24
+                        fontsize = 24,
                         ),
+
+                widget.GenPollText(
+                        font=widget_font,
+                        fontsize=16,
+                        background=bk,
+                        foreground=fr,
+                        func=vol_text,
+                        update_interval=0,
+                        mouse_callbacks={
+                                "Button4": lambda: subprocess.run(["pactl", "set-sink-volume", "@DEFAULT_SINK@", "+1%"]),
+                                "Button5": lambda: subprocess.run(["pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%"]),
+                                "Button1": lambda: subprocess.run(["pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle"]),
+                        },),
 
                 widget.TextBox(
                         text = '',
@@ -283,6 +365,7 @@ mybar = [
                         foreground = bk,
                         # low_battery_script=f"{home}/.config/qtile/scripts/battery_low.sh"
                         ),
+                
 
                 widget.TextBox(
                         text = '',
@@ -313,7 +396,7 @@ mybar = [
                 # ), 
                 # widget.Systray(),                           
                 ],
-                background=trn, size=22, margin=[0, 115, 0, 0],
+                background=trn, size=22, margin=[0, 76, 0, 0],
         )
         )
 ]

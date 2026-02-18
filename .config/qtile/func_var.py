@@ -12,7 +12,7 @@ home = os.path.expanduser('~')
 
 
 
-co = cp.wall_color
+co = colors.space_night
 fix = colors.changable
 
 bk = co['bk']
@@ -87,6 +87,7 @@ va = {
     "lock_screen":              f"{home}/.config/i3lock/lock.sh",
     # "wall_change":              f"{home}/.config/qtile/scripts/rofi_wall.py"
     # "lock_screen":              "betterlockscreen -l"
+    "night_light":              f"{home}/.config/qtile/scripts/night_light.sh",
     }
 
 name = va

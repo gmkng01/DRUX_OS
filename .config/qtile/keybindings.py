@@ -15,10 +15,27 @@ home = os.path.expanduser('~')
 
 mykeys = [
         ### The essentials launches
+
+        # Key(
+        # ["mod4"], "f",
+        # lazy.function(
+        #     lambda qtile: [
+        #         setattr(w, "minimized", False)
+        #         for w in qtile.current_group.windows
+        #         if w.floating
+        #     ]
+        # ),
+        # desc="Show floating windows in current workspace"
+        # ),
+
+
         Key(["mod4"], "Return", lazy.spawn(name['trml']), 
             desc='Launches My Terminal'),
 
         Key(["mod4", "control"], "Return", lazy.spawn(name['fl_trml']), 
+            desc='NetworkManager Tools'),
+        
+        Key(["mod4", "shift"], "e", lazy.spawn(name['night_light']), 
             desc='NetworkManager Tools'),
     
         Key(["mod1", "shift"], "c", lazy.spawn("google-chrome-stable"), 
@@ -64,6 +81,11 @@ mykeys = [
         ### System controls
         Key(["mod4"], "Tab", lazy.next_layout(), 
             desc='Toggle through layouts'),
+
+        Key(["mod1"], "Tab",
+            lazy.layout.next(),
+            desc='Switch window focus to other pane(s) of stack'
+            ),
 
         Key(["mod1"], "q", lazy.window.kill(), 
             desc='Kill active window'),
@@ -153,10 +175,6 @@ mykeys = [
             lazy.layout.rotate(),
             lazy.layout.flip(),
             desc='Switch which side main pane occupies (XmonadTall)'
-            ),
-        Key(["mod1"], "Tab",
-            lazy.layout.next(),
-            desc='Switch window focus to other pane(s) of stack'
             ),
         Key(["mod4", "shift"], "space",
             lazy.layout.toggle_split(),
