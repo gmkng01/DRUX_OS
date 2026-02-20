@@ -136,7 +136,7 @@ programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6 Zenity fish xfce4-volumed-pulse
+    ripgrep xfce4-power-manager python-pyqt6 Zenity fish xfce4-volumed-pulse gnome-keyring
 )
 
 # List of AUR packages
