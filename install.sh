@@ -142,7 +142,7 @@ programs=(
 # List of AUR packages
 aur_programs=(
     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
-    envycontrol pfetch python-pulsectl jmtpfs lightdm-settings python-colorthief
+    pfetch python-pulsectl jmtpfs lightdm-settings python-colorthief
     volctl qtile-extras nomacs brightnessctl nitrogen trayer grub-customizer-git volctl
 )
 
