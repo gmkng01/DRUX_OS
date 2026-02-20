@@ -131,12 +131,12 @@ cd mirror && ./get_mirror.sh && cd ~
 # List of packages from official repos
 programs=(
     qtile neovim git htop curl wget firefox polkit-gnome terminator rofi picom
-    font-manager blueman bluez bluez-utils pulseaudio pavucontrol
-    brightnessctl pamixer alsa-plugins alsa-utils pulseaudio-bluetooth
+    font-manager blueman bluez bluez-utils  pavucontrol
+    brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6 Zenity fish xfce4-volumed-pulse gnome-keyring
+    ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift
 )
 
 # List of AUR packages
