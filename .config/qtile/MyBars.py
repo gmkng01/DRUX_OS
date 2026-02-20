@@ -1,4 +1,4 @@
-from libqtile import  widget
+from libqtile import  widget, hook
 import subprocess, re
 # from libqtile import qtile
 from func_var import name
@@ -8,53 +8,130 @@ from services.battery import BatteryWidget
 from libqtile.config import Group, Match, Screen
 from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widget_font_symbols
 
-def get_vol():
-    out = subprocess.run(
-        ["pactl", "get-sink-volume", "@DEFAULT_SINK@"],
-        capture_output=True,
-        text=True
-    ).stdout
-    match = re.search(r'(\d+)%', out)
-    return int(match.group(1)) if match else 0
+# def get_vol():
+#     out = subprocess.run(
+#         ["pactl", "get-sink-volume", "@DEFAULT_SINK@"],
+#         capture_output=True,
+#         text=True
+#     ).stdout
+#     match = re.search(r'(\d+)%', out)
+#     return int(match.group(1)) if match else 0
 
-def is_muted():
+# def is_muted():
+#     out = subprocess.run(
+#         ["pactl", "get-sink-mute", "@DEFAULT_SINK@"],
+#         capture_output=True,
+#         text=True
+#     ).stdout
+#     return "yes" in out
+
+
+# def is_bluetooth_sink():
+#     import subprocess
+
+#     out = subprocess.run(
+#         ["pactl", "get-default-sink"],
+#         capture_output=True,
+#         text=True
+#     ).stdout.lower()
+
+#     return "bluez" in out or "bluetooth" in out
+
+
+
+
+# def vol_text():
+#     vol = get_vol()
+#     muted = is_muted()
+#     bt = is_bluetooth_sink()
+
+#     if muted:
+#         return "󰖁 MUTE"    
+
+#     if vol==0:
+#         text = f"󰕿 {vol} "
+#     elif vol <=35:
+#         text=f"󰖀 {vol} "
+#     else:
+#         text=f"󰕾 {vol} "
+
+#     if bt:
+#         text += "  󰂰"
+#     return text
+
+
+
+
+
+
+
+def get_volume_info():
     out = subprocess.run(
-        ["pactl", "get-sink-mute", "@DEFAULT_SINK@"],
+        ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"],
         capture_output=True,
         text=True
-    ).stdout
-    return "yes" in out
+    ).stdout.strip()
+
+    # Example output:
+    # Volume: 0.42
+    # Volume: 0.42 [MUTED]
+
+    match = re.search(r'Volume:\s+([0-9.]+)', out)
+    vol = int(float(match.group(1)) * 100) if match else 0
+    muted = "[MUTED]" in out
+
+    return vol, muted
 
 
 def is_bluetooth_sink():
-    import subprocess
-
     out = subprocess.run(
-        ["pactl", "get-default-sink"],
+        ["wpctl", "inspect", "@DEFAULT_AUDIO_SINK@"],
         capture_output=True,
         text=True
     ).stdout.lower()
 
-    return "bluez" in out or "bluetooth" in out
+    return "bluez" in out
+
 
 def vol_text():
-    vol = get_vol()
-    muted = is_muted()
+    vol, muted = get_volume_info()
     bt = is_bluetooth_sink()
 
     if muted:
-        return "󰖁 MUTE"    
+        return "󰖁 MUTE"
 
-    if vol==0:
-        text = f"󰕿 {vol} "
-    elif vol <=35:
-        text=f"󰖀 {vol} "
+    if vol == 0:
+        text = f"󰕿 {vol}"
+    elif vol <= 35:
+        text = f"󰖀 {vol}"
     else:
-        text=f"󰕾 {vol} "
+        text = f"󰕾 {vol}"
 
     if bt:
         text += "  󰂰"
+
     return text
+
+
+
+
+
+
+
+
+
+
+
+def is_nightlight_on():
+    try:
+        subprocess.check_output(["pgrep", "-x", "redshift"])
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+night_bg = "#ff8800" if is_nightlight_on() else fr
+
+
 
 mybar = [
     Screen
@@ -253,7 +330,7 @@ mybar = [
                                 widget.TextBox(
                                         text = ' ',
                                         font = widget_font_symbols,
-                                        background = fr,
+                                        background = night_bg,
                                         foreground = bk2,
                                         padding = 0,
                                         fontsize = 24,
@@ -402,11 +479,11 @@ mybar = [
 ]
 
 mygroup = [
-    Group('1', label="", matches = [Match(wm_class = name['browser'])]),
+    Group('1', label="", matches = [Match(wm_class = name['browser'])], layout='max'),
     Group('2', label="", matches = [Match(wm_class = 'code')], layout='max'),
     Group('3', label=""), 
     Group('4', label="",matches = [Match(wm_class = name['file_manager'])]),
-    Group('5', label="", matches = [Match(wm_class = "discord"), Match(wm_class="TelegramDesktop")]),
+    Group('5', label="", matches = [Match(wm_class = "discord"), Match(wm_class="TelegramDesktop")], layout='floating'),
     Group('6', label=""),
     Group('7', label=""),
     Group('8', label=""),

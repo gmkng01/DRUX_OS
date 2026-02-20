@@ -1,1 +1,1 @@
-hook
+lazy.spawn(name['night_light'])
