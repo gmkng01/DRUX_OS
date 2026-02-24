@@ -134,15 +134,15 @@ programs=(
     font-manager blueman bluez bluez-utils  pavucontrol
     brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
-    telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
+    telegram-desktop lxappearance xfce4-screenshooter
     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift sddm
+    ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift
 )
 
 # List of AUR packages
 aur_programs=(
     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
-    pfetch python-pulsectl jmtpfs lightdm-settings python-colorthief
+    pfetch python-pulsectl jmtpfs python-colorthief
     qtile-extras nomacs brightnessctl nitrogen trayer grub-customizer-git
 )
 
@@ -195,6 +195,7 @@ copy_configs() {
 
     echo "📄 Copying dotfiles..."
     cp -T .bashrc ~/.bashrc
+    cp -T .xinitrc ~/.xinitrc
     cp -T .Xmodmap ~/.Xmodmap
     cp -T .zshrc ~/.zshrc
 
