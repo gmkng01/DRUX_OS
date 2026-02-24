@@ -136,14 +136,14 @@ programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift
+    ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift sddm
 )
 
 # List of AUR packages
 aur_programs=(
     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
     pfetch python-pulsectl jmtpfs lightdm-settings python-colorthief
-    volctl qtile-extras nomacs brightnessctl nitrogen trayer grub-customizer-git volctl
+    qtile-extras nomacs brightnessctl nitrogen trayer grub-customizer-git
 )
 
 install_programs() {
