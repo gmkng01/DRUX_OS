@@ -1,281 +1,305 @@
 #!/bin/bash
 
-# echo "Updating mirrors"
-# cd mirror
-# # Update mirror list
-# ./get_mirror.sh
-# cd
+# set -e  # Exit on error
+# set -o pipefail
 
-# # List of programs to install
+# sudo pacman -S --needed base-devel
+
+# echo "==> Updating mirror list..."
+# cd mirror && ./get_mirror.sh && cd ~
+
+# # List of packages from official repos
 # programs=(
-#     qtile neovim git htop curl wget firefox lxsession terminator rofi picom
-#     font-manager blueman bluez bluez-utils pulseaudio pavucontrol
-#     brightnessctl pamixer alsa-plugins alsa-utils pulseaudio-bluetooth
+#     qtile neovim git htop curl wget firefox polkit-gnome terminator rofi picom
+#     font-manager blueman bluez bluez-utils  pavucontrol
+#     brightnessctl pamixer 
 #     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
-#     telegram-desktop lxappearance lightdm-slick-greeter xfce4-screenshooter
-#     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm
-#     ripgrep xfce4-power-manager python-pyqt6
-# # )
-
-# # Update the package database and upgrade the system
-# echo "Updating the package database and upgrading the system..."
-# sudo pacman -Syu --noconfirm
-
-# # Install each program in the list
-# echo "Installing programs..."
-# for program in "${programs[@]}"; do
-#     if pacman -Qi $program &> /dev/null; then
-#         echo "$program is already installed."
-#     else
-#         sudo pacman -S --noconfirm $program
-#     fi
-# done
-
-# # Create a Sources directory and clone yay
-# echo "Setting up yay AUR helper..."
-# mkdir -p ~/Sources
-# cd ~/Sources
-# if [ ! -d "yay" ]; then
-#     git clone https://aur.archlinux.org/yay.git
-# else
-#     echo "yay directory already exists. Skipping clone."
-# fi
-
-# # Build and install yay
-# cd yay
-# makepkg -si --noconfirm
-
-# # List of AUR programs to install via yay
-# aur_programs=(
-#     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
-#     envycontrol pfetch python-pulsectl jmtpfs lightdm-settings python-colorthief
-#     volctl qtile-extras nomacs brightnessctl nitrogen trayer grub-customizer-git volctl
+#     telegram-desktop lxappearance xfce4-screenshooter
+#     upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
+#     ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift
 # )
 
-# # Install each AUR program via yay
-# echo "Installing AUR programs via yay..."
-# for aur_program in "${aur_programs[@]}"; do
-#     yay -S --noconfirm $aur_program
-# done
+# # List of AUR packages
+# aur_programs=(
+#     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
+#     pfetch python-pulsectl jmtpfs python-colorthief
+#     qtile-extras brightnessctl nitrogen trayer grub-customizer-git
+# )
 
-# # Change to the newqtile_test directory
-# cd ~/newqtile_test
+# install_programs() {
+#     echo "==> Updating system..."
+#     sudo pacman -Syu --noconfirm
 
-# # Additional commands for fonts setup
-# echo "Setting up fonts..."
-# sudo cp -rT fonts /usr/local/share/fonts/
-# sudo fc-cache -vf
+#     echo "==> Installing official packages..."
+#     for program in "${programs[@]}"; do
+#         if pacman -Qi "$program" &>/dev/null; then
+#             echo "✔ $program is already installed."
+#         else
+#             sudo pacman -S --noconfirm "$program"
+#         fi
+#     done
+# }
 
-# # Copy .config directory to the home directory
-# echo "Copying .config directory to the home directory..."
-# cp -rT .config ~/.config/
+# setup_yay() {
+#     echo "==> Setting up yay AUR helper..."
+#     mkdir -p ~/Sources
+#     cd ~/Sources
 
-# # Copy .bashrc to the home directory
-# echo "Copying .bashrc to the home directory..."
-# cp -T .bashrc ~/.bashrc
+#     if [ ! -d "yay" ]; then
+#         git clone https://aur.archlinux.org/yay.git
+#     else
+#         echo "✔ yay already cloned."
+#     fi
 
-# # Copy .Xmodmap to the home directory
-# echo "Copying .Xmodmap to the home directory..."
-# cp -T .bashrc ~/.Xmodmap
+#     cd yay
+#     makepkg -si --noconfirm
+# }
 
-# # Copy .zshrc to the home directory
-# echo "Copying zshrc to the home directory..."
-# cp -T .zshrc ~/.zshrc
+# install_aur_programs() {
+#     echo "==> Installing AUR packages..."
+#     for aur_program in "${aur_programs[@]}"; do
+#         yay -S --noconfirm "$aur_program"
+#     done
+# }
 
-# # Adding Xmodmap file to xinitrc so it can run automaticly
-# echo "Adding Xmodmap file to xinitr"
-# TEXT_FILE="/etc/X11/xinit/xinitrc"
-# LINE_TO_ADD="xmodmap ~/.Xmodmap"
-# sudo echo "$LINE_TO_ADD" >> "$TEXT_FILE"
-# echo "Line added to $TEXT_FILE"
+# copy_configs() {
+#     echo "==> Setting up configuration files..."
+#     cd ~/DRUX_OS
 
-# # Copy 50-libinput.conf to /etc/X11/xorg.conf.d/
-# echo "Copying 50-libinput.conf and 10-serverflags.conf to /etc/X11/xorg.conf.d/..."
-# sudo cp 50-libinput.conf /etc/X11/xorg.conf.d/
-# sudo cp 10-serverflags.conf /etc/X11/xorg.conf.d/
-# echo "Copying thunderbolt configration"
-# sudo cp 99-removable.rules /etc/udev/rules.d/
+#     echo "📁 Copying fonts..."
+#     sudo cp -rT fonts /usr/local/share/fonts/
+#     sudo fc-cache -vf
 
-# # Enable Bluetooth service
-# echo "Enabling Bluetooth service..."
-# sudo systemctl enable bluetooth
-# sudo systemctl start bluetooth
+#     echo "📁 Copying .config directory..."
+#     cp -rT .config ~/.config/
 
-# # Copy lightdm config
-# echo "Copying lightdm configration to /etc/"
-# sudo cp -rT lightdm /etc/lightdm
+#     echo "📄 Copying dotfiles..."
+#     cp -T .bashrc ~/.bashrc
+#     cp -T .xinitrc ~/.xinitrc
+#     cp -T .Xmodmap ~/.Xmodmap
+#     cp -T .zshrc ~/.zshrc
 
-# # Copy Grub theme config
-# echo "Copying Grub themes configration to /boot/"
-# sudo cp -rT grub /boot/grub/
+#     echo "🧠 Adding Xmodmap to xinitrc..."
+#     XINITRC="/etc/X11/xinit/xinitrc"
+#     LINE='xmodmap ~/.Xmodmap'
+#     if ! grep -Fxq "$LINE" "$XINITRC"; then
+#         echo "$LINE" | sudo tee -a "$XINITRC" > /dev/null
+#         echo "✔ Added to $XINITRC"
+#     else
+#         echo "✔ Xmodmap line already exists in $XINITRC"
+#     fi
+# }
 
-# # Configration for Abhishek Mishra only
-# git config --global user.name "Abhishek Mishra"
-# git config --global user.email gmkng1@gmail.com
+# copy_system_configs() {
+#     echo "==> Copying system configuration files..."
 
-# mkdir -p  ~/Pictures/Screenshots
-# cp -rT walls   ~/Pictures/walls
+#     sudo cp 50-libinput.conf /etc/X11/xorg.conf.d/
+#     sudo cp 10-serverflags.conf /etc/X11/xorg.conf.d/
+#     sudo cp 99-removable.rules /etc/udev/rules.d/
+#     sudo cp -rT lightdm /etc/lightdm
+#     sudo cp -rT grub /boot/grub/
+#     sudo cp -rT walls/background.jpeg /usr/share/pixmaps/background.jpeg
+# }
+
+# enable_services() {
+#     echo "==> Enabling services..."
+#     sudo systemctl enable bluetooth
+#     sudo systemctl start bluetooth
+#     systemctl --user status trayer.service
+#     systemctl --user status volctl.service
+#     systemctl --user status wallpaper.service
+#     systemctl --user status polkit.service
+#     systemctl --user status picom.service
+#     systemctl --user status nm-applet.service
+#     systemctl --user status graphical-session.service
+#     systemctl --user status blueman-applet.service
+#     systemctl --user status battery-low.service
+# }
+
+# adding_starship_promt(){
+#     echo "==> Installing Starship Prompt"
+#     curl -sS https://starship.rs/install.sh | sh -s -- -y
+# }
+
+# change_shell_fish(){
+#     echo "==> Changing shel Bash to Fish"
+#     chsh -s "$(command -v fish)"
+# }
+
+# final_touches() {
+#     echo "==> Final touches..."
+
+#     git config --global user.name "Abhishek Mishra"
+#     git config --global user.email "gmkng1@gmail.com"
+
+#     mkdir -p ~/Pictures/Screenshots
+#     cp -rT walls ~/Pictures/walls
+# }
+
+# main() {
+#     install_programs
+#     setup_yay
+#     install_aur_programs
+#     copy_configs
+#     copy_system_configs
+#     enable_services
+#     adding_starship_promt
+#     change_shell_fish
+#     final_touches
+#     echo "🎉 Installation complete!"
+
+#     # Prompt for reboot
+#     read -rp "🔁 Do you want to reboot now? (y/n): " answer
+#     if [[ "$answer" =~ ^[Yy]$ ]]; then
+#         echo "Rebooting system..."
+#         sudo reboot
+#     else
+#         echo "Reboot skipped. Please reboot manually later to apply all changes."
+#     fi
+# }
+# main
 
 
-# echo "Installation complete!"
 
 
+#!/usr/bin/env bash
 
+set -euo pipefail  # Exit on error, unset vars, and pipe failures
 
-set -e  # Exit on error
-set -o pipefail
+# --- Configuration ---
+REPOS_DIR="$HOME/DRUX_OS"
+SOURCES_DIR="$HOME/Sources"
 
-echo "==> Updating mirror list..."
-cd mirror && ./get_mirror.sh && cd ~
-
-# List of packages from official repos
-programs=(
+official_programs=(
     qtile neovim git htop curl wget firefox polkit-gnome terminator rofi picom
-    font-manager blueman bluez bluez-utils  pavucontrol
-    brightnessctl pamixer 
+    font-manager blueman bluez bluez-utils pavucontrol brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
-    telegram-desktop lxappearance xfce4-screenshooter
-    upower sxiv mpv gnome-disk-utility kdeconnect pcmanfm python-pywayland
-    ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse gnome-keyring redshift
+    telegram-desktop lxappearance xfce4-screenshooter upower sxiv mpv 
+    gnome-disk-utility kdeconnect pcmanfm python-pywayland ripgrep 
+    xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse 
+    gnome-keyring redshift lightdm lightdm-gtk-greeter
 )
 
-# List of AUR packages
 aur_programs=(
-    visual-studio-code-bin betterlockscreen dracula-gtk-theme-full dracula-icons-git
-    pfetch python-pulsectl jmtpfs python-colorthief
-    qtile-extras nomacs brightnessctl nitrogen trayer grub-customizer-git
+    visual-studio-code-bin betterlockscreen dracula-gtk-theme-full 
+    dracula-icons-git pfetch python-pulsectl jmtpfs python-colorthief
+    qtile-extras nitrogen trayer grub-customizer-git
 )
 
-install_programs() {
-    echo "==> Updating system..."
-    sudo pacman -Syu --noconfirm
+# --- Functions ---
 
+prep_system() {
+    echo "==> Initializing System..."
+    sudo pacman -S --needed --noconfirm base-devel git
+}
+
+install_official() {
     echo "==> Installing official packages..."
-    for program in "${programs[@]}"; do
-        if pacman -Qi "$program" &>/dev/null; then
-            echo "✔ $program is already installed."
-        else
-            sudo pacman -S --noconfirm "$program"
-        fi
-    done
+    sudo pacman -Syu --needed --noconfirm "${official_programs[@]}"
 }
 
 setup_yay() {
-    echo "==> Setting up yay AUR helper..."
-    mkdir -p ~/Sources
-    cd ~/Sources
-
-    if [ ! -d "yay" ]; then
-        git clone https://aur.archlinux.org/yay.git
-    else
-        echo "✔ yay already cloned."
+    if command -v yay &>/dev/null; then
+        echo "✔ yay is already installed."
+        return
     fi
-
+    echo "==> Setting up yay AUR helper..."
+    mkdir -p "$SOURCES_DIR"
+    pushd "$SOURCES_DIR" >/dev/null
+    git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si --noconfirm
+    popd >/dev/null
 }
 
-install_aur_programs() {
+install_aur() {
     echo "==> Installing AUR packages..."
-    for aur_program in "${aur_programs[@]}"; do
-        yay -S --noconfirm "$aur_program"
-    done
+    # Installing as a batch is much faster than a loop
+    yay -S --needed --noconfirm "${aur_programs[@]}"
 }
 
 copy_configs() {
-    echo "==> Setting up configuration files..."
-    cd ~/DRUX_OS
+    echo "==> Applying Dotfiles..."
+    [ -d "$REPOS_DIR" ] || { echo "Error: $REPOS_DIR not found"; return 1; }
+    
+    cd "$REPOS_DIR"
+    
+    # Fonts
+    sudo mkdir -p /usr/local/share/fonts/
+    [ -d "fonts" ] && sudo cp -rf fonts/* /usr/local/share/fonts/
+    sudo fc-cache -fv
 
-    echo "📁 Copying fonts..."
-    sudo cp -rT fonts /usr/local/share/fonts/
-    sudo fc-cache -vf
+    # Configs (using -a for archive/recursive/preserve)
+    mkdir -p ~/.config
+    cp -ra .config/* ~/.config/
+    
+    # Home files
+    for file in .bashrc .xinitrc .Xmodmap .zshrc; do
+        [ -f "$file" ] && cp "$file" "$HOME/"
+    done
 
-    echo "📁 Copying .config directory..."
-    cp -rT .config ~/.config/
-
-    echo "📄 Copying dotfiles..."
-    cp -T .bashrc ~/.bashrc
-    cp -T .xinitrc ~/.xinitrc
-    cp -T .Xmodmap ~/.Xmodmap
-    cp -T .zshrc ~/.zshrc
-
-    echo "🧠 Adding Xmodmap to xinitrc..."
-    XINITRC="/etc/X11/xinit/xinitrc"
+    # Xmodmap setup
+    XINITRC_GLOBAL="/etc/X11/xinit/xinitrc"
     LINE='xmodmap ~/.Xmodmap'
-    if ! grep -Fxq "$LINE" "$XINITRC"; then
-        echo "$LINE" | sudo tee -a "$XINITRC" > /dev/null
-        echo "✔ Added to $XINITRC"
-    else
-        echo "✔ Xmodmap line already exists in $XINITRC"
+    if [ -f "$XINITRC_GLOBAL" ] && ! grep -Fxq "$LINE" "$XINITRC_GLOBAL"; then
+        echo "$LINE" | sudo tee -a "$XINITRC_GLOBAL" > /dev/null
     fi
 }
 
 copy_system_configs() {
-    echo "==> Copying system configuration files..."
-
-    sudo cp 50-libinput.conf /etc/X11/xorg.conf.d/
-    sudo cp 10-serverflags.conf /etc/X11/xorg.conf.d/
-    sudo cp 99-removable.rules /etc/udev/rules.d/
-    sudo cp -rT lightdm /etc/lightdm
-    sudo cp -rT grub /boot/grub/
-    sudo cp -rT walls/background.jpeg /usr/share/pixmaps/background.jpeg
+    echo "==> Applying System Rules..."
+    cd "$REPOS_DIR"
+    
+    # Use -f to force/overwrite
+    [ -f "50-libinput.conf" ] && sudo cp 50-libinput.conf /etc/X11/xorg.conf.d/
+    [ -f "10-serverflags.conf" ] && sudo cp 10-serverflags.conf /etc/X11/xorg.conf.d/
+    [ -f "99-removable.rules" ] && sudo cp 99-removable.rules /etc/udev/rules.d/
+    
+    # Walls
+    sudo mkdir -p /usr/share/pixmaps
+    [ -f "walls/background.jpeg" ] && sudo cp walls/background.jpeg /usr/share/pixmaps/
 }
 
 enable_services() {
-    echo "==> Enabling services..."
-    sudo systemctl enable bluetooth
-    sudo systemctl start bluetooth
-    systemctl --user status trayer.service
-    systemctl --user status volctl.service
-    systemctl --user status wallpaper.service
-    systemctl --user status polkit.service
-    systemctl --user status picom.service
-    systemctl --user status nm-applet.service
-    systemctl --user status graphical-session.service
-    systemctl --user status blueman-applet.service
-    systemctl --user status battery-low.service
-}
-
-adding_starship_promt(){
-    echo "==> Installing Starship Prompt"
-    curl -sS https://starship.rs/install.sh | sh -s -- -y
-}
-
-change_shell_fish(){
-    echo "==> Changing shel Bash to Fish"
-    chsh -s "$(command -v fish)"
+    echo "==> Enabling Services..."
+    sudo systemctl enable --now bluetooth
+    
+    # User services (only enable, don't start, as we aren't in a graphical session)
+    # Note: These services must exist in ~/.config/systemd/user/
+    user_svcs=(trayer volctl wallpaper polkit picom nm-applet blueman-applet)
+    for svc in "${user_svcs[@]}"; do
+        systemctl --user enable "$svc" || echo "⚠️ Could not enable $svc (Expected if no D-Bus)"
+    done
 }
 
 final_touches() {
-    echo "==> Final touches..."
-
+    echo "==> Finalizing..."
     git config --global user.name "Abhishek Mishra"
     git config --global user.email "gmkng1@gmail.com"
-
-    mkdir -p ~/Pictures/Screenshots
-    cp -rT walls ~/Pictures/walls
+    
+    # Starship
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+    
+    # Shell
+    sudo chsh -s "$(command -v fish)" "$USER"
+    
+    mkdir -p ~/Pictures/Screenshots ~/Pictures/walls
+    [ -d "$REPOS_DIR/walls" ] && cp -r "$REPOS_DIR/walls/"* ~/Pictures/walls/
 }
 
 main() {
-    install_programs
+    prep_system
+    install_official
     setup_yay
-    install_aur_programs
+    install_aur
     copy_configs
     copy_system_configs
     enable_services
-    adding_starship_promt
-    change_shell_fish
     final_touches
+
     echo "🎉 Installation complete!"
-
-    # Prompt for reboot
-    read -rp "🔁 Do you want to reboot now? (y/n): " answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        echo "Rebooting system..."
-        sudo reboot
-    else
-        echo "Reboot skipped. Please reboot manually later to apply all changes."
-    fi
+    read -rp "🔁 Reboot now? (y/n): " answer
+    [[ "$answer" =~ ^[Yy]$ ]] && sudo reboot
 }
-main
 
+main
