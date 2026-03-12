@@ -175,9 +175,9 @@ official_programs=(
     font-manager blueman bluez bluez-utils pavucontrol brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
     telegram-desktop lxappearance xfce4-screenshooter upower sxiv mpv 
-    gnome-disk-utility kdeconnect pcmanfm python-pywayland ripgrep 
+    gnome-disk-utility kdeconnect pcmanfm ripgrep 
     xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse 
-    gnome-keyring redshift lightdm lightdm-gtk-greeter
+    gnome-keyring redshift
 )
 
 aur_programs=(
