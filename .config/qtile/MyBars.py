@@ -122,14 +122,14 @@ def vol_text():
 
 
 
-def is_nightlight_on():
-    try:
-        subprocess.check_output(["pgrep", "-x", "redshift"])
-        return True
-    except subprocess.CalledProcessError:
-        return False
+# def is_nightlight_on():
+#     try:
+#         subprocess.check_output(["pgrep", "-x", "redshift"])
+#         return True
+#     except subprocess.CalledProcessError:
+#         return False
 
-night_bg = "#ff8800" if is_nightlight_on() else fr
+# night_bg = "#ff8800" if is_nightlight_on() else fr
 
 
 
@@ -330,7 +330,7 @@ mybar = [
                                 widget.TextBox(
                                         text = ' ',
                                         font = widget_font_symbols,
-                                        background = night_bg,
+                                        background = fr,
                                         foreground = bk2,
                                         padding = 0,
                                         fontsize = 24,
@@ -344,7 +344,7 @@ mybar = [
                                         text = '',
                                         font = widget_font_symbols,
                                         background = fr,
-                                        foreground = bk2,
+                                        foreground = bk,
                                         padding = 0,
                                         fontsize = 24
                                         ),
