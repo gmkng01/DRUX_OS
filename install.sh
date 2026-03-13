@@ -177,7 +177,7 @@ official_programs=(
     telegram-desktop lxappearance xfce4-screenshooter upower sxiv mpv 
     gnome-disk-utility kdeconnect pcmanfm ripgrep 
     xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse 
-    gnome-keyring redshift
+    gnome-keyring redshift pipewire-media-session rtkit
 )
 
 aur_programs=(
