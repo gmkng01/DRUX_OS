@@ -174,9 +174,8 @@ official_programs=(
     qtile neovim git htop curl wget firefox polkit-gnome terminator rofi picom
     font-manager blueman bluez bluez-utils pavucontrol brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs gvfs-mtp gvfs-gphoto2
-    telegram-desktop lxappearance xfce4-screenshooter upower sxiv mpv 
-    gnome-disk-utility kdeconnect pcmanfm ripgrep 
-    xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse 
+    lxappearance xfce4-screenshooter mpv gnome-disk-utility
+    pcmanfm ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse 
     gnome-keyring redshift rtkit pulseaudio alsa-utils alsa-plugins pulseaudio-bluetooth
     pulseaudio-jack
 )
