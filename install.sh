@@ -171,18 +171,17 @@ REPOS_DIR="$HOME/DRUX_OS"
 SOURCES_DIR="$HOME/Sources"
 
 official_programs=(
-    qtile neovim git htop curl wget firefox polkit-gnome terminator rofi picom
+    neovim git htop wget firefox polkit-gnome terminator rofi picom
     font-manager blueman bluez bluez-utils pavucontrol brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs ntfs-3g gvfs-mtp gvfs-gphoto2
     lxappearance xfce4-screenshooter mpv gnome-disk-utility
-    pcmanfm ripgrep xfce4-power-manager python-pyqt6 zenity fish xfce4-volumed-pulse 
-    gnome-keyring redshift rtkit pulseaudio alsa-utils alsa-plugins pulseaudio-bluetooth
-    pulseaudio-jack 
+    pcmanfm ripgrep python-pyqt6 zenity fish 
+    gnome-keyring redshift 
 )
 
 aur_programs=(
     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full 
-    dracula-icons-git pfetch python-pulsectl jmtpfs python-colorthief
+    dracula-icons-git pfetch jmtpfs python-colorthief
     qtile-extras nitrogen trayer grub-customizer-git
 )
 

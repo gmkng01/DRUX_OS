@@ -8,6 +8,9 @@ from services.battery import BatteryWidget
 from libqtile.config import Group, Match, Screen
 from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widget_font_symbols
 
+
+# ___________________________________________________
+# code below uses too much CPU
 # def get_vol():
 #     out = subprocess.run(
 #         ["pactl", "get-sink-volume", "@DEFAULT_SINK@"],
@@ -25,7 +28,6 @@ from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widge
 #     ).stdout
 #     return "yes" in out
 
-
 # def is_bluetooth_sink():
 #     import subprocess
 
@@ -36,9 +38,6 @@ from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widge
 #     ).stdout.lower()
 
 #     return "bluez" in out or "bluetooth" in out
-
-
-
 
 # def vol_text():
 #     vol = get_vol()
@@ -65,71 +64,54 @@ from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widge
 
 
 
-def get_volume_info():
-    out = subprocess.run(
-        ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"],
-        capture_output=True,
-        text=True
-    ).stdout.strip()
+# def get_volume_info():
+#     out = subprocess.run(
+#         ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"],
+#         capture_output=True,
+#         text=True
+#     ).stdout.strip()
 
-    # Example output:
-    # Volume: 0.42
-    # Volume: 0.42 [MUTED]
+#     # Example output:
+#     # Volume: 0.42
+#     # Volume: 0.42 [MUTED]
 
-    match = re.search(r'Volume:\s+([0-9.]+)', out)
-    vol = int(float(match.group(1)) * 100) if match else 0
-    muted = "[MUTED]" in out
+#     match = re.search(r'Volume:\s+([0-9.]+)', out)
+#     vol = int(float(match.group(1)) * 100) if match else 0
+#     muted = "[MUTED]" in out
 
-    return vol, muted
-
-
-def is_bluetooth_sink():
-    out = subprocess.run(
-        ["wpctl", "inspect", "@DEFAULT_AUDIO_SINK@"],
-        capture_output=True,
-        text=True
-    ).stdout.lower()
-
-    return "bluez" in out
+#     return vol, muted
 
 
-def vol_text():
-    vol, muted = get_volume_info()
-    bt = is_bluetooth_sink()
+# def is_bluetooth_sink():
+#     out = subprocess.run(
+#         ["wpctl", "inspect", "@DEFAULT_AUDIO_SINK@"],
+#         capture_output=True,
+#         text=True
+#     ).stdout.lower()
 
-    if muted:
-        return "󰖁 MUTE"
+#     return "bluez" in out
 
-    if vol == 0:
-        text = f"󰕿 {vol}"
-    elif vol <= 35:
-        text = f"󰖀 {vol}"
-    else:
-        text = f"󰕾 {vol}"
+# def vol_text():
+#     vol, muted = get_volume_info()
+#     bt = is_bluetooth_sink()
 
-    if bt:
-        text += "  󰂰"
+#     if muted:
+#         return "󰖁 MUTE"
 
-    return text
+#     if vol == 0:
+#         text = f"󰕿 {vol}"
+#     elif vol <= 35:
+#         text = f"󰖀 {vol}"
+#     else:
+#         text = f"󰕾 {vol}"
 
+#     if bt:
+#         text += "  󰂰"
 
+#     return text
 
+# _____________________________________________________________________
 
-
-
-
-
-
-
-
-# def is_nightlight_on():
-#     try:
-#         subprocess.check_output(["pgrep", "-x", "redshift"])
-#         return True
-#     except subprocess.CalledProcessError:
-#         return False
-
-# night_bg = "#ff8800" if is_nightlight_on() else fr
 
 
 
@@ -413,18 +395,18 @@ mybar = [
                         fontsize = 24,
                         ),
 
-                widget.GenPollText(
-                        font=widget_font,
-                        fontsize=16,
-                        background=bk,
-                        foreground=fr,
-                        func=vol_text,
-                        update_interval=0,
-                        mouse_callbacks={
-                                "Button4": lambda: subprocess.run(["pactl", "set-sink-volume", "@DEFAULT_SINK@", "+1%"]),
-                                "Button5": lambda: subprocess.run(["pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%"]),
-                                "Button1": lambda: subprocess.run(["pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle"]),
-                        },),
+                # widget.GenPollText(
+                #         font=widget_font,
+                #         fontsize=16,
+                #         background=bk,
+                #         foreground=fr,
+                #         func=vol_text,
+                #         update_interval=0,
+                #         mouse_callbacks={
+                #                 "Button4": lambda: subprocess.run(["pactl", "set-sink-volume", "@DEFAULT_SINK@", "+1%"]),
+                #                 "Button5": lambda: subprocess.run(["pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%"]),
+                #                 "Button1": lambda: subprocess.run(["pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle"]),
+                #         },),
 
                 widget.TextBox(
                         text = '',
