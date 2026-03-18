@@ -5,21 +5,31 @@ from colorthief import ColorThief
 
 home = os.path.expanduser("~")
 
+# def extract_text(filename):
+#     with open(filename, "r") as file:
+#         text = file.read()
+
+#     # match = re.search(r"/home.*", text, re.MULTILINE)  # Multiline search
+#     if match:
+#         return match.group()
+#     else:
+#         return ""
 
 def extract_text(filename):
     with open(filename, "r") as file:
         text = file.read()
-
-    match = re.search(r"/home.*", text, re.MULTILINE)  # Multiline search
+    match = re.search(r"\$HOME.*", text, re.MULTILINE) 
+    
     if match:
-        return match.group()
+        raw_path = match.group()  # This looks like: $HOME/Pictures/walls/image.jpeg"
+        full_path = raw_path.replace("$HOME", home)
+        clean_path = full_path.replace('"', '').replace("'", "")
+        return clean_path
     else:
         return ""
 
-
-# Example usage
-wall_path = extract_text(f"{home}/.config/nitrogen/bg-saved.cfg")
-# lock_wall = extract_text(f"{home}/.config/qtile/scripts/test.py")
+# wall_path = extract_text(f"{home}/.config/nitrogen/bg-saved.cfg")
+wall_path = extract_text(f"{home}/.fehbg")
 
 ct = ColorThief(wall_path)
 palette = ct.get_palette(color_count=5)

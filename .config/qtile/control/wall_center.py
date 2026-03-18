@@ -848,7 +848,8 @@ except ImportError:
 # ------------------------ Config ------------------------
 HOME = Path.home()
 DEFAULT_WALL_DIR = HOME / "Pictures" / "walls"
-NITROGEN_CFG_PATH = HOME / ".config" / "nitrogen" / "bg-saved.cfg"
+# NITROGEN_CFG_PATH = HOME / ".config" / "nitrogen" / "bg-saved.cfg"
+NITROGEN_CFG_PATH = HOME / ".fehbg"
 LOCK_SCRIPT_PATH = HOME / ".config" / "i3lock" / "lock.sh"
 LOGIN_IMAGE_DEST = Path("/usr/share/pixmaps/background.jpeg")
 QTILE_FUNC_VAR = CONFIG_PATH / "func_var.py"
@@ -1035,10 +1036,24 @@ class MainWindow(QtWidgets.QWidget):
         if self._load_index < len(self._files_to_load):
             QtCore.QTimer.singleShot(10, self.load_next_batch)
 
+    # def on_selection_changed(self, current, _):
+    #     if not current: return
+    #     self.image_path = current.data(QtCore.Qt.ItemDataRole.UserRole)
+    #     pix = QtGui.QPixmap(self.image_path)
+    #     scaled = pix.scaled(self.preview_label.size(), QtCore.Qt.AspectRatioMode.KeepAspectRatio, QtCore.Qt.TransformationMode.SmoothTransformation)
+    #     self.preview_label.setPixmap(scaled)
+
     def on_selection_changed(self, current, _):
         if not current: return
-        self.image_path = current.data(QtCore.Qt.ItemDataRole.UserRole)
-        pix = QtGui.QPixmap(self.image_path)
+        
+        # 1. Get the actual absolute path from the selected item
+        raw_path = current.data(QtCore.Qt.ItemDataRole.UserRole)
+        
+        # 2. Replace the hardcoded path with $HOME and save it to your variable
+        self.image_path = raw_path.replace('/home/abhi/', '$HOME/')
+        
+        # 3. Use the raw_path to load the image preview!
+        pix = QtGui.QPixmap(raw_path)
         scaled = pix.scaled(self.preview_label.size(), QtCore.Qt.AspectRatioMode.KeepAspectRatio, QtCore.Qt.TransformationMode.SmoothTransformation)
         self.preview_label.setPixmap(scaled)
 
@@ -1055,9 +1070,11 @@ class MainWindow(QtWidgets.QWidget):
     def apply_desktop(self):
         if NITROGEN_CFG_PATH.exists():
             content = NITROGEN_CFG_PATH.read_text()
-            new_content = re.sub(r"file=.*", f"file={self.image_path}", content)
+            # new_content = re.sub(r"file=.*", f"file={self.image_path}", content)
+            new_content = re.sub(r"feh.*", f"feh --no-fehbg --bg-fill {self.image_path}", content)
             NITROGEN_CFG_PATH.write_text(new_content)
-            run_shell(["nitrogen", "--restore"])
+            # run_shell(["nitrogen", "--restore"])
+            run_shell(["./.fehbg"])
         
         run_shell(["qtile", "cmd-obj", "-o", "cmd", "-f", "restart"])
         

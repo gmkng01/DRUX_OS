@@ -176,13 +176,13 @@ official_programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs ntfs-3g gvfs-mtp gvfs-gphoto2
     lxappearance xfce4-screenshooter mpv gnome-disk-utility
     pcmanfm ripgrep python-pyqt6 zenity fish 
-    gnome-keyring redshift 
+    gnome-keyring redshift feh
 )
 
 aur_programs=(
     visual-studio-code-bin betterlockscreen dracula-gtk-theme-full 
     dracula-icons-git pfetch jmtpfs python-colorthief
-    qtile-extras nitrogen trayer grub-customizer-git
+    qtile-extras trayer grub-customizer-git
 )
 
 # --- Functions ---
@@ -233,7 +233,7 @@ copy_configs() {
     cp -ra .config/* ~/.config/
     
     # Home files
-    for file in .bashrc .xinitrc .Xmodmap .zshrc; do
+    for file in .bashrc .xinitrc .Xmodmap .fehbg; do
         [ -f "$file" ] && cp "$file" "$HOME/"
     done
 
@@ -265,7 +265,7 @@ enable_services() {
     
     # User services (only enable, don't start, as we aren't in a graphical session)
     # Note: These services must exist in ~/.config/systemd/user/
-    user_svcs=(trayer volctl wallpaper polkit picom nm-applet blueman-applet)
+    user_svcs=(trayer volctl polkit picom nm-applet blueman-applet)
     for svc in "${user_svcs[@]}"; do
         systemctl --user enable "$svc" || echo "⚠️ Could not enable $svc (Expected if no D-Bus)"
     done
