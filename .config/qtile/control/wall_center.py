@@ -254,7 +254,7 @@ class MainWindow(QtWidgets.QWidget):
         if feh.exists():
             content = feh.read_text()
             # new_content = re.sub(r"file=.*", f"file={self.image_path}", content)
-            new_content = re.sub(r"feh.*", f"feh --no-fehbg --bg-fill {self.image_path}", content)
+            new_content = re.sub(r"feh.*", f'''feh --no-fehbg --bg-fill "{self.image_path}"''', content)
             feh.write_text(new_content)
             # run_shell(["nitrogen", "--restore"])
             run_shell(["./.fehbg"])

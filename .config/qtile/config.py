@@ -1,4 +1,4 @@
-import os
+# import os
 from MyBars import mybar, mygroup
 from libqtile import layout, hook
 from libqtile.config import Match
@@ -6,6 +6,7 @@ from libqtile.layout import Floating
 from keybindings import mykeys, mymouse
 # import os
 import subprocess
+import time
 
 screens =   mybar
 keys =      mykeys
@@ -65,13 +66,19 @@ reconfigure_screens = True
 auto_minimize = True
 wmname = "LG3D"
 
-subprocess.run([
-    "systemctl", "--user", "import-environment",
-    "DISPLAY", "XAUTHORITY"
-])
+@hook.subscribe.startup_once
+def start_systemd_session():
 
-subprocess.run([
-    "systemctl", "--user", "start", "graphical-session.target"
-])
+    time.sleep(0.2)
+    # # 1. Import variables (Blocking: wait until this finishes)
+    # subprocess.run([
+    #     "systemctl", "--user", "import-environment", 
+    #     "DISPLAY", "XAUTHORITY"
+    # ])
 
+    # 2. Signal the session start (Non-blocking)
+    subprocess.Popen([
+        "systemctl", "--user", "start", "graphical-session.target"
+    ])
 
+    subprocess.Popen(["volctl"])

@@ -1,5 +1,5 @@
-from libqtile import  widget, hook
-import subprocess, re
+from libqtile import  widget
+# import subprocess, re
 # from libqtile import qtile
 from func_var import name
 from libqtile.bar import Bar
@@ -7,113 +7,6 @@ from libqtile.lazy import lazy
 from services.battery import BatteryWidget
 from libqtile.config import Group, Match, Screen
 from func_var import bk, fr, bk2, fr2, gr, trn, urgent, name, widget_font, widget_font_symbols
-
-
-# ___________________________________________________
-# code below uses too much CPU
-# def get_vol():
-#     out = subprocess.run(
-#         ["pactl", "get-sink-volume", "@DEFAULT_SINK@"],
-#         capture_output=True,
-#         text=True
-#     ).stdout
-#     match = re.search(r'(\d+)%', out)
-#     return int(match.group(1)) if match else 0
-
-# def is_muted():
-#     out = subprocess.run(
-#         ["pactl", "get-sink-mute", "@DEFAULT_SINK@"],
-#         capture_output=True,
-#         text=True
-#     ).stdout
-#     return "yes" in out
-
-# def is_bluetooth_sink():
-#     import subprocess
-
-#     out = subprocess.run(
-#         ["pactl", "get-default-sink"],
-#         capture_output=True,
-#         text=True
-#     ).stdout.lower()
-
-#     return "bluez" in out or "bluetooth" in out
-
-# def vol_text():
-#     vol = get_vol()
-#     muted = is_muted()
-#     bt = is_bluetooth_sink()
-
-#     if muted:
-#         return "󰖁 MUTE"    
-
-#     if vol==0:
-#         text = f"󰕿 {vol} "
-#     elif vol <=35:
-#         text=f"󰖀 {vol} "
-#     else:
-#         text=f"󰕾 {vol} "
-
-#     if bt:
-#         text += "  󰂰"
-#     return text
-
-
-
-
-
-
-
-# def get_volume_info():
-#     out = subprocess.run(
-#         ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"],
-#         capture_output=True,
-#         text=True
-#     ).stdout.strip()
-
-#     # Example output:
-#     # Volume: 0.42
-#     # Volume: 0.42 [MUTED]
-
-#     match = re.search(r'Volume:\s+([0-9.]+)', out)
-#     vol = int(float(match.group(1)) * 100) if match else 0
-#     muted = "[MUTED]" in out
-
-#     return vol, muted
-
-
-# def is_bluetooth_sink():
-#     out = subprocess.run(
-#         ["wpctl", "inspect", "@DEFAULT_AUDIO_SINK@"],
-#         capture_output=True,
-#         text=True
-#     ).stdout.lower()
-
-#     return "bluez" in out
-
-# def vol_text():
-#     vol, muted = get_volume_info()
-#     bt = is_bluetooth_sink()
-
-#     if muted:
-#         return "󰖁 MUTE"
-
-#     if vol == 0:
-#         text = f"󰕿 {vol}"
-#     elif vol <= 35:
-#         text = f"󰖀 {vol}"
-#     else:
-#         text = f"󰕾 {vol}"
-
-#     if bt:
-#         text += "  󰂰"
-
-#     return text
-
-# _____________________________________________________________________
-
-
-
 
 mybar = [
     Screen
