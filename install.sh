@@ -176,7 +176,7 @@ official_programs=(
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs ntfs-3g gvfs-mtp gvfs-gphoto2
     lxappearance xfce4-screenshooter mpv gnome-disk-utility
     pcmanfm ripgrep python-pyqt6 zenity fish 
-    gnome-keyring redshift feh
+    gnome-keyring redshift feh python-dbus-fast
 )
 
 aur_programs=(
