@@ -174,7 +174,7 @@ official_programs=(
     neovim git htop wget firefox polkit-gnome terminator rofi picom
     font-manager blueman bluez bluez-utils pavucontrol brightnessctl pamixer 
     xarchiver zip unzip unrar p7zip python-dbus-next mtpfs ntfs-3g gvfs-mtp gvfs-gphoto2
-    lxappearance xfce4-screenshooter mpv gnome-disk-utility
+    lxappearance xfce4-screenshooter xfce4-clipman mpv gnome-disk-utility
     pcmanfm ripgrep python-pyqt6 zenity fish 
     gnome-keyring redshift feh python-dbus-fast
 )
