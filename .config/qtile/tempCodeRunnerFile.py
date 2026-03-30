@@ -1,1 +1,1 @@
-lazy.spawn(name['night_light'])
+subprocess.Popen(["/home/abhi/.config/qtile/scripts/autostart.sh"])

@@ -48,7 +48,7 @@ floating_layout = Floating(
          # Match(wm_class='terminator'),             # Terminator  
          Match(wm_class='qbittorrent'),            # QbitTorrent
          Match(wm_class='nm-connection-editor'),   # Network Manager GUI
-         Match(wm_class='wall_center.py'),   # Theme changer
+         Match(wm_class='xfce4-clipman-history'),   # Clipboard XFCE SS
 
     ]
 )
@@ -70,15 +70,7 @@ wmname = "LG3D"
 def start_systemd_session():
 
     time.sleep(0.2)
-    # # 1. Import variables (Blocking: wait until this finishes)
-    # subprocess.run([
-    #     "systemctl", "--user", "import-environment", 
-    #     "DISPLAY", "XAUTHORITY"
-    # ])
 
-    # 2. Signal the session start (Non-blocking)
     subprocess.Popen([
         "systemctl", "--user", "start", "graphical-session.target"
     ])
-
-    subprocess.Popen(["volctl"])

@@ -1,0 +1,10 @@
+[Unit]
+Description=ClipBoard for XFCE Screenshot
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/xfce4-clipman
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
