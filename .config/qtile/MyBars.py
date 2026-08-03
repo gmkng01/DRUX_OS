@@ -318,6 +318,8 @@ mybar = [
                         # low_battery_script=f"{home}/.config/qtile/scripts/battery_low.sh"
                         ),
                 
+                # widget.PulseVolume(fmt='Vol: {}'),
+
 
                 widget.TextBox(
                         text = '',

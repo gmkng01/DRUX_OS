@@ -3,7 +3,7 @@ Description=Volume control tray app
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/volctl
+ExecStart=/usr/bin/volumeicon
 Restart=on-failure
 
 [Install]

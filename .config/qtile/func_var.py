@@ -84,7 +84,7 @@ va = {
     "screenshot_region":        'sh -c "xfce4-screenshooter -r --clipboard --save ~/Pictures/Screenshots/Screenshot_$(date +\'%Y-%m-%d_%H:%M:%S\').png"',
     "screenshot_gui":           "xfce4-screenshooter",
     # "trayer":                   f"killall trayer && trayer --transparent true --width 4 --edge top --align right --alpha 0 --tint 0x{bk[1::]} --margin 10 --distance 10 --distancefrom top",
-    "lock_screen":              f"{home}/.config/i3lock/lock.sh",
+    "lock_screen":              f"sh -c 'pkill blueman-applet; {home}/.config/i3lock/lock.sh; blueman-applet &'",
     # "wall_change":              f"{home}/.config/qtile/scripts/rofi_wall.py"
     # "lock_screen":              "betterlockscreen -l"
     "night_light":              f"{home}/.config/qtile/scripts/night_light.sh",

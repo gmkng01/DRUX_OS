@@ -1,8 +1,0 @@
-{
-    "window.menuBarVisibility": "toggle",
-    "editor.mouseWheelZoom": true,
-    "workbench.productIconTheme": "material-product-icons",
-    "workbench.editorAssociations": {
-        "{git,gitlens}:/**/*.{md,csv,svg}": "default"
-    }
-}

@@ -1,75 +1,14 @@
 #!/usr/bin/env bash
 
-alpha='10'
-alpha2='66'
-background='#282a36'
-selection='#44475a'
-comment='#6272a4'
-font='#DDDDDD'
-fr="#AAAAAA"
-fr2="#3A3A3A"
+# Suspend message display cleanly via systemd
+# killall blueman-applet
+systemctl --user stop blueman-applet
 
-yellow='#f1fa8c'
-orange='#ffb86c'
-red='#ff5555'
-magenta='#ff79c6'
-blue='#6272a4'
-cyan='#8be9fd'
-green='50fa7b'
-# trn = '#ffffff00'
+# Run the lock script in the foreground
+# The script will pause here until the lock screen is dismissed
+/home/abhi/.config/i3lock/i3lock.sh
 
-i3lock \
-  --insidever-color=$selection$alpha \
-  --insidewrong-color=$selection$alpha \
-  --inside-color=$selection$alpha \
-  --ringver-color=$green$alpha \
-  --ringwrong-color=$red$alpha \
-  --ringver-color=$green$alpha \
-  --ringwrong-color=$red$alpha \
-  --ring-color=$blue$alpha \
-  --line-uses-ring \
-  --keyhl-color=$magenta$alpha \
-  --bshl-color=$orange$alpha \
-  --separator-color=$selection$alpha \
-  --verif-color=$green \
-  --wrong-color=$red \
-  --modif-color=$red \
-  --layout-color=$blue \
-  --date-color=$fr \
-  --time-color=$fr2 \
-  --screen 1 \
-  --force-clock \
-  --indicator \
-  --time-str="%H :%M" \
-  --date-str="%a %e %b %Y" \
-  --verif-text="Checking..." \
-  --wrong-text="Wrong pswd" \
-  --noinput="No Input" \
-  --lock-text="Locking..." \
-  --lockfailed="Lock Failed" \
-  --image="/home/abhi/Pictures/walls/r93oi0tii90g1.png" \
-  --fill \
-  --time-font="NFS Font" \
-  --date-font="NFS Font" \
-  --layout-font="NFS Font" \
-  --verif-font="NFS Font" \
-  --wrong-font="NFS Font" \
-  --time-align=1 \
-  --date-align=1 \
-  --date-size=60 \
-  --time-size=175 \
-  --time-pos="110:200" \
-  --date-pos="100:250" \
-  --ind-pos="950:942"\
-  --bar-pos="-10:860" \
-  --bar-base-width=10 \
-  --bar-total-width=10 \
-  --bar-max-height=30 \
-  --bar-indicator \
-  --bar-step=2000 \
-  --refresh-rate=1 \
-  --bar-count=20000 \
-  
-
-#   --blur 3 \
-#   --bar-color=$background$alpha \
+# Resume message display after unlocking
+# killall blueman-applet
+# sleep 1
+# systemctl --user start blueman-applet
