@@ -1,1 +1,0 @@
-subprocess.Popen(["/home/abhi/.config/qtile/scripts/autostart.sh"])
