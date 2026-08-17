@@ -29,12 +29,12 @@ layouts = [
        max_border_width = 0,
        margin =  [7,7,7,7],
     ),
-    layout.Floating(        
-       border_width = 0,
-       fullscreen_border_width = 0,
-       max_border_width = 0, 
-       margin =  [0, 0, 0, 0],
-    )
+    # layout.Floating(        
+    #    border_width = 0,
+    #    fullscreen_border_width = 0,
+    #    max_border_width = 0, 
+    #    margin =  [0, 0, 0, 0],
+    # )
 ]
 
 floating_layout = Floating(
