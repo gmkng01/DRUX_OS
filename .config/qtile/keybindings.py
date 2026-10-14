@@ -196,13 +196,13 @@ mykeys = [
         Key([], 'XF86MonBrightnessDown', lazy.spawn(name["bright_down"])),
         
         # ScreenShots
-        Key([], "Print", lazy.spawn(name["screenshot_full"])),
+        Key(["mod4"], "s",lazy.spawn(name["screenshot_full"])),
 
-        Key(["control"], "Print", lazy.spawn(name["screenshot_region"])),
+        Key(["mod4", "shift"], "s", lazy.spawn(name["screenshot_region"])),
 
-        Key(["control", "mod4"], "Print", lazy.spawn(name["screenshot_window"])),
+        Key(["mod4", "control"], "s", lazy.spawn(name["screenshot_window"])),
 
-        Key(["control", "shift"], "Print", lazy.spawn("xfce4-screenshooter")),
+        Key(["control", "shift"], "s", lazy.spawn("xfce4-screenshooter")),
 
 ]
 
